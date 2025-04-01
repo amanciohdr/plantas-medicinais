@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malvarisco | Farmácia da Mata</title>
+    <!-- Adicione o Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --secondary-green: #27ae60;
+            --light-green: #d4edda;
+            --dark-green: #1e8449;
+            --text-color: #2c3e50;
+            --background-color: #f4f6f7;
+            --pdf-red: #e74c3c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-green);
+        }
+
+        .herb-page {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .herb-page-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .herb-page-title {
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-green);
+            font-size: 2em;
+        }
+
+        .herb-section {
+            margin-bottom: 25px;
+        }
+
+        .herb-section h2 {
+            color: var(--secondary-green);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .herb-section ul {
+            padding-left: 20px;
+        }
+
+        .herb-section li {
+            margin-bottom: 8px;
+        }
+
+        /* NOVO: Estilo para a seção de download */
+        .pdf-section {
+            background-color: var(--light-green);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px dashed var(--primary-green);
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--pdf-red);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pdf-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .pdf-note {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .back-to-home:hover {
+            background-color: var(--secondary-green);
+        }
+
+        @media (max-width: 600px) {
+            .herb-page {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .herb-page-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <a href="index.html" class="back-button">← Voltar</a>
+    
+    <div class="herb-page">
+        <img src="imagens/malvarisco.jpg" alt="Malvarisco" class="herb-page-image">
+        
+        <h1 class="herb-page-title">🍀 Malvarisco (Plectranthus amboinicus)</h1>
+        
+        <div class="herb-section">
+            <h2>Descrição Botânica</h2>
+            <p>INSIRA AQUI A DESCRIÇÃO</p>
+        </div>
+        
+        <div class="herb-section">
+            <h2>Propriedades Medicinais</h2>
+            <ul>
+                <li><strong>Propriedade1:</strong> Descrição</li>
+                <li><strong>Propriedade2:</strong> Descrição</li>
+                <li><strong>Propriedade3:</strong> Descrição</li>
+            </ul>
+        </div>
+        
+        <div class="herb-section">
+            <h2>Modos de Uso</h2>
+            <h3>Chá</h3>
+            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
+            <p><strong>Dosagem:</strong> Posologia</p>
+        </div>
+        
+        <div class="herb-section">
+            <h2>Contraindicações</h2>
+            <ul>
+                <li>Contraindicação1</li>
+                <li>Contraindicação1</li>
+                <li>Contraindicação1</li>
+            </ul>
+        </div>
+        
+        <div class="herb-section">
+            <h2>Curiosidades</h2>
+            <ul>
+                <li>Curiosidade1</li>
+                <li>Curiosidade2</li>
+                <li>Curiosidade3</li>
+            </ul>
+        </div>
+
+        <!-- NOVA SEÇÃO: Download do PDF -->
+        <div class="pdf-section">
+            <h2>Monografia Científica</h2>
+            <a href="pdf/malvarisco.pdf" class="pdf-btn" download>
+                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+            </a>
+            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+        </div>
+        
+        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+    </div>
+</body>
+</html>
