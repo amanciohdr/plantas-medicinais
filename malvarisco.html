@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malvarisco | Farmácia da Mata</title>
-    <!-- Adicione o Font Awesome para ícones -->
+    <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bibliotecas Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <style>
         :root {
             --primary-green: #2ecc71;
@@ -85,6 +89,12 @@
             font-size: 1.4em;
         }
 
+        .herb-section h3 {
+            color: var(--dark-green);
+            margin: 15px 0 10px;
+            font-size: 1.2em;
+        }
+
         .herb-section ul {
             padding-left: 20px;
         }
@@ -93,7 +103,6 @@
             margin-bottom: 8px;
         }
 
-        /* NOVO: Estilo para a seção de download */
         .pdf-section {
             background-color: var(--light-green);
             padding: 20px;
@@ -147,6 +156,61 @@
             background-color: var(--secondary-green);
         }
 
+        /* Estilos para o container 3D */
+        #model-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        #model-container:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .model-instructions {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 249, 250, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .loading-bar {
+            width: 80%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: var(--primary-green);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
         @media (max-width: 600px) {
             .herb-page {
                 margin: 20px;
@@ -156,11 +220,15 @@
             .herb-page-image {
                 height: 200px;
             }
+            
+            #model-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
     
     <div class="herb-page">
@@ -168,46 +236,72 @@
         
         <h1 class="herb-page-title">🍀 Malvarisco (Plectranthus amboinicus)</h1>
         
+        <!-- Seção do Modelo 3D -->
+        <div class="herb-section">
+            <h2>Visualização 3D</h2>
+            <div id="model-container">
+                <div class="loading-overlay" id="loading-overlay">
+                    <p>Carregando modelo 3D...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="load-progress"></div>
+                    </div>
+                    <small id="load-status">Iniciando...</small>
+                </div>
+            </div>
+            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
+        </div>
+        
+        <!-- Restante do conteúdo... -->
         <div class="herb-section">
             <h2>Descrição Botânica</h2>
-            <p>INSIRA AQUI A DESCRIÇÃO</p>
+            <p>O Malvarisco (Plectranthus amboinicus) é uma planta herbácea perene, suculenta, aromática, com caules rasteiros ou prostrados. Suas folhas são grossas, carnosas, aveludadas, com bordas crenadas e um aroma forte e característico quando maceradas. Pode atingir entre 30-90 cm de altura e se espalha facilmente. As flores são pequenas, de cor lilás pálido, dispostas em inflorescências terminais.</p>
         </div>
         
         <div class="herb-section">
             <h2>Propriedades Medicinais</h2>
             <ul>
-                <li><strong>Propriedade1:</strong> Descrição</li>
-                <li><strong>Propriedade2:</strong> Descrição</li>
-                <li><strong>Propriedade3:</strong> Descrição</li>
+                <li><strong>Expectorante:</strong> Auxilia na eliminação do catarro e alívio de afecções respiratórias</li>
+                <li><strong>Anti-inflamatório:</strong> Ajuda a reduzir processos inflamatórios, especialmente do trato respiratório</li>
+                <li><strong>Antimicrobiano:</strong> Possui propriedades que combatem diversos microrganismos</li>
+                <li><strong>Analgésico:</strong> Auxilia no alívio de dores, especialmente de garganta</li>
+                <li><strong>Antitussígeno:</strong> Ajuda a aliviar a tosse</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Modos de Uso</h2>
             <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
-            <p><strong>Dosagem:</strong> Posologia</p>
+            <p><strong>Preparo:</strong> Utilize 2 a 3 folhas frescas (ou 1 colher de sopa de folhas secas) para cada xícara de água. Coloque água para ferver e, após desligar o fogo, adicione as folhas. Tampe e deixe em infusão por 10 minutos. Coe antes de consumir.</p>
+            <p><strong>Dosagem:</strong> Beber 3 a 4 xícaras ao dia, de preferência morno.</p>
+            
+            <h3>Xarope</h3>
+            <p><strong>Preparo:</strong> Em uma panela, adicione 3 xícaras de água, 1 xícara de folhas de malvarisco picadas e 1 xícara de açúcar mascavo. Leve ao fogo baixo por 20 minutos. Coe, deixe esfriar e guarde em recipiente de vidro na geladeira.</p>
+            <p><strong>Dosagem:</strong> 1 colher de sopa, 3 vezes ao dia.</p>
         </div>
         
         <div class="herb-section">
             <h2>Contraindicações</h2>
             <ul>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
+                <li>Gestantes e lactantes devem evitar o uso</li>
+                <li>Pessoas com problemas hepáticos devem consultar um médico antes do uso</li>
+                <li>Não recomendado para crianças menores de 2 anos</li>
+                <li>Pode interagir com medicamentos anticoagulantes</li>
+                <li>Em doses altas pode causar irritação gástrica</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Curiosidades</h2>
             <ul>
-                <li>Curiosidade1</li>
-                <li>Curiosidade2</li>
-                <li>Curiosidade3</li>
+                <li>Também é conhecido como hortelã-graúda, hortelã-pimenta, hortelã-gorda ou hortelã-da-folha-grossa</li>
+                <li>É originário da Ásia Tropical e foi introduzido no Brasil durante o período colonial</li>
+                <li>Na culinária indiana, é utilizado em temperos e em alguns pratos tradicionais</li>
+                <li>É uma planta resistente que se adapta bem a diversas condições e é de fácil cultivo</li>
+                <li>Na medicina tradicional, é usado há séculos para tratar problemas respiratórios em diversas culturas</li>
             </ul>
         </div>
 
-        <!-- NOVA SEÇÃO: Download do PDF -->
+        <!-- Seção: Download do PDF -->
         <div class="pdf-section">
             <h2>Monografia Científica</h2>
             <a href="pdf/malvarisco.pdf" class="pdf-btn" download>
@@ -216,8 +310,126 @@
             <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
         </div>
         
-        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <!-- Botão "Voltar para Catálogo" -->
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Configuração da cena Three.js
+            const container = document.getElementById('model-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            const camera = new THREE.PerspectiveCamera(
+                45, 
+                container.clientWidth / container.clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 0, 2);
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            if (renderer.outputEncoding !== undefined) {
+                renderer.outputEncoding = THREE.sRGBEncoding;
+            }
+            container.appendChild(renderer.domElement);
+    
+            // 2. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 0.5;
+            controls.maxDistance = 10;
+    
+            // 3. Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1.5, 1);
+            scene.add(directionalLight);
+    
+            // 4. Carregador GLB
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadProgress = document.getElementById('load-progress');
+            const loadStatus = document.getElementById('load-status');
+            
+            if (typeof THREE.GLTFLoader === 'function') {
+                const loader = new THREE.GLTFLoader();
+                let model;
+    
+                loader.load(
+                    // URL do modelo
+                    '3d/malvarisco.glb',
+                    
+                    // Sucesso
+                    function (gltf) {
+                        model = gltf.scene;
+                        
+                        // Ajusta escala e posição
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        model.position.sub(center);
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 1.5 / maxDim;
+                        model.scale.set(scale, scale, scale);
+                        
+                        scene.add(model);
+                        
+                        // Esconde tela de carregamento
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    },
+                    
+                    // Progresso
+                    function (xhr) {
+                        if (xhr.lengthComputable) {
+                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                            loadProgress.style.width = `${percent}%`;
+                            loadStatus.textContent = 
+                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                        }
+                    },
+                    
+                    // Erro
+                    function (error) {
+                        console.error('Erro ao carregar:', error);
+                        loadStatus.innerHTML = 
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
+                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                    }
+                );
+            } else {
+                loadStatus.innerHTML = 
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
+                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+            }
+    
+            // 5. Animação
+            function animate() {
+                requestAnimationFrame(animate);
+                if (controls) controls.update();
+                if (renderer && scene && camera) renderer.render(scene, camera);
+            }
+            animate();
+    
+            // 6. Redimensionamento
+            window.addEventListener('resize', () => {
+                if (camera && renderer && container) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
