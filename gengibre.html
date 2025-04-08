@@ -3,171 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boldo | Guia de Plantas Medicinais</title>
-    <style>
-        :root {
-            --primary-green: #2ecc71;
-            --secondary-green: #27ae60;
-            --light-green: #d4edda;
-            --dark-green: #1e8449;
-            --text-color: #2c3e50;
-            --background-color: #f4f6f7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .herb-page {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .herb-page-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .herb-page-title {
-            color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--primary-green);
-            font-size: 2em;
-        }
-
-        .herb-section {
-            margin-bottom: 25px;
-        }
-
-        .herb-section h2 {
-            color: var(--secondary-green);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .herb-section ul {
-            padding-left: 20px;
-        }
-
-        .herb-section li {
-            margin-bottom: 8px;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .back-to-home:hover {
-            background-color: var(--secondary-green);
-        }
-
-        @media (max-width: 600px) {
-            .herb-page {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            .herb-page-image {
-                height: 200px;
-            }
-        }
-    </style>
+    <title>Gengibre | Farmácia Verde</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style-plants.css">
+    <!-- Bibliotecas Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
     
     <div class="herb-page">
         <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image">
         
-        <h1 class="herb-page-title">Nome (Espécie)</h1>
+        <h1 class="herb-page-title">Gengibre (Zingiber officinale)</h1>
         
+        <!-- Seção do Modelo 3D -->
         <div class="herb-section">
-            <h2>Descrição Botânica</h2>
-            <p>INSIRA AQUI A DESCRIÇÃO</p>
+            <h2>Visualização 3D</h2>
+            <div id="model-container">
+                <div class="loading-overlay" id="loading-overlay">
+                    <p>Carregando modelo 3D...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="load-progress"></div>
+                    </div>
+                    <small id="load-status">Iniciando...</small>
+                </div>
+            </div>
+            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Propriedades Medicinais</h2>
-            <ul>
-                <li><strong>Propriedade1:</strong> Descrição</li>
-                <li><strong>Propriedade2:</strong> Descrição</li>
-                <li><strong>Propriedade3:</strong> Descrição</li>
-            </ul>
+        <!-- Restante do conteúdo... -->
+        <div class="herb-container">
+            <!-- University Header -->
+            <div class="university-header">
+                <h1>UNIVERSIDADE ESTADUAL DE CAMPINAS</h1>
+                <h2>Faculdade de Ciências Farmacêuticas</h2>
+                <p>Docente: Profa. Dra. Alexandra Christine Helena Frankland Sawaya</p>
+                <p>Discente: Evelyn Larissa da Conceição Pereira</p>
+                <p>Campinas - SP 2024</p>
+            </div>
+        
+            <!-- Plant Header -->
+            <div class="plant-header">
+                <h1>GENGIBRE <em>(Zingiber officinale)</em></h1>
+            </div>
+        
+            <!-- Sinônimos -->
+            <div class="herb-section">
+                <h2>Sinônimos</h2>
+                <ul>
+                    <li>Mangarataia</li>
+                    <li>Mangaratiá</li>
+                    <li><em>Amomum zingiber</em> L.</li>
+                    <li><em>Zingiber aromaticum</em> Noronha</li>
+                </ul>
+            </div>
+        
+            <!-- Descrição Morfológica -->
+            <div class="herb-section">
+                <h2>Descrição da Planta</h2>
+                <ul>
+                    <li><strong>Porte:</strong> Herbácea perene (1,2-1,5m altura)</li>
+                    <li><strong>Rizoma:</strong>
+                        <ul>
+                            <li>Horizontal e ramificado</li>
+                            <li>14-16cm comprimento</li>
+                            <li>Tubérculos ovóides e rugosos</li>
+                            <li>Cor amarelo-claro internamente</li>
+                        </ul>
+                    </li>
+                    <li><strong>Folhas:</strong> Ordenadas, lanceoladas</li>
+                    <li><strong>Flores:</strong> Amarelo-esverdeadas em espigas</li>
+                    <li><strong>Fruto:</strong> Cápsula com 3 cavidades</li>
+                    <li><strong>Sementes:</strong> Azuladas com albúmen carnoso</li>
+                </ul>
+            </div>
+        
+            <!-- Para Que Serve -->
+            <div class="herb-section">
+                <h2>Para Que Serve</h2>
+                <ul>
+                    <li><strong>Usos tradicionais:</strong>
+                        <ul>
+                            <li>Náuseas e enjoos (incluindo cinetose)</li>
+                            <li>Problemas digestivos (gases, indigestão)</li>
+                            <li>Gripes e resfriados</li>
+                            <li>Dores de garganta e rouquidão</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ações farmacológicas:</strong>
+                        <ul>
+                            <li>Anti-inflamatório</li>
+                            <li>Antiemético (contra náuseas)</li>
+                            <li>Antimicrobiano</li>
+                            <li>Cardiotônico</li>
+                            <li>Protetor gástrico</li>
+                            <li>Estimulante digestivo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Como Usar -->
+            <div class="herb-section">
+                <h2>Como Usar</h2>
+                <h3>Infusão (Chá)</h3>
+                <ul>
+                    <li>0,5-1g de rizoma seco</li>
+                    <li>150mL de água fervente</li>
+                    <li>Tomar 2-4 vezes ao dia</li>
+                </ul>
+        
+                <h3>Tintura</h3>
+                <ul>
+                    <li>2,5mL diluídos em 75mL água</li>
+                    <li>Até 3 vezes ao dia</li>
+                </ul>
+        
+                <h3>Para Náuseas/Viagens</h3>
+                <ul>
+                    <li>0,5g de rizoma seco</li>
+                    <li>2-4 vezes ao dia</li>
+                </ul>
+        
+                <h3>Para Indigestão</h3>
+                <ul>
+                    <li>2-4g de rizoma seco/dia</li>
+                </ul>
+            </div>
+        
+            <!-- Cuidados e Contraindicações -->
+            <div class="herb-section">
+                <h2>Cuidados e Contraindicações</h2>
+                <ul>
+                    <li><strong>Contraindicações:</strong>
+                        <ul>
+                            <li>Pacientes com cálculos biliares</li>
+                            <li>Irritações gástricas severas</li>
+                            <li>Hipertensos</li>
+                            <li>Usuários de anticoagulantes</li>
+                        </ul>
+                    </li>
+                    <li><strong>Efeitos adversos:</strong>
+                        <ul>
+                            <li>Náuseas (em doses altas)</li>
+                            <li>Irritação estomacal</li>
+                            <li>Dermatite de contato</li>
+                        </ul>
+                    </li>
+                    <li><strong>Interações:</strong> Pode potencializar anticoagulantes</li>
+                </ul>
+            </div>
+        
+            <!-- Cultivo -->
+            <div class="herb-section">
+                <h2>Cultivo</h2>
+                <ul>
+                    <li><strong>Clima ideal:</strong> Tropical (adaptável a frio)</li>
+                    <li><strong>Solo:</strong> Arenoso, fértil (pH ~5,5)</li>
+                    <li><strong>Propagação:</strong> Por rizomas (30 dias para plantio)</li>
+                    <li><strong>Ciclo:</strong> 10-12 meses até colheita</li>
+                    <li><strong>Época de plantio:</strong> Setembro/Outubro</li>
+                    <li><strong>Origem:</strong> Ásia</li>
+                </ul>
+            </div>
+        
+            <!-- Curiosidades -->
+            <div class="herb-section">
+                <h2>Curiosidades</h2>
+                <ul>
+                    <li>Principais compostos ativos: gingerol e shogaol</li>
+                    <li>Mecanismo de ação: Anti-serotoninérgico (similar a metoclopramida)</li>
+                    <li>Usado há mais de 3.000 anos na medicina asiática</li>
+                    <li>Terceira especiaria mais consumida no mundo</li>
+                    <li>Componente essencial da culinária oriental</li>
+                </ul>
+            </div>
+        
+            <!-- Composição Química -->
+            <div class="herb-section">
+                <h2>Composição Química</h2>
+                <ul>
+                    <li><strong>Óleos essenciais:</strong>
+                        <ul>
+                            <li>Zingibereno</li>
+                            <li>β-sesquifelandreno</li>
+                            <li>β-bisabolol</li>
+                        </ul>
+                    </li>
+                    <li><strong>Compostos fenólicos:</strong>
+                        <ul>
+                            <li>Gingerol (principal ativo)</li>
+                            <li>Shogaol</li>
+                            <li>Zingerona</li>
+                        </ul>
+                    </li>
+                    <li><strong>Outros:</strong>
+                        <ul>
+                            <li>Citral (neral + geranial)</li>
+                            <li>Diterpenoides labdanos</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- References -->
+            <div class="references">
+                <h2>Referências</h2>
+                <ul>
+                    <li>Farmacopeia Brasileira (ANVISA, 2016)</li>
+                    <li>Embrapa - Cultivo de Gengibre</li>
+                    <li>Horto Didático UFSC (2020)</li>
+                    <li>Manual MSD - Suplementos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seção: Download do PDF -->
+        <div class="pdf-section">
+            <h2>Monografia Científica</h2>
+            <a href="pdf/gengibre.pdf" class="pdf-btn" download>
+                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+            </a>
+            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Modos de Uso</h2>
-            <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
-            <p><strong>Dosagem:</strong> Posologia</p>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Contraindicações</h2>
-            <ul>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-            </ul>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Curiosidades</h2>
-            <ul>
-                <li>Curiosidade1</li>
-                <li>Curiosidade2</li>
-                <li>Curiosidade3</li>
-            </ul>
-        </div>
-        
-        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <!-- Botão "Voltar para Catálogo" -->
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Configuração da cena Three.js
+            const container = document.getElementById('model-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            const camera = new THREE.PerspectiveCamera(
+                45, 
+                container.clientWidth / container.clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 0, 2);
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            if (renderer.outputEncoding !== undefined) {
+                renderer.outputEncoding = THREE.sRGBEncoding;
+            }
+            container.appendChild(renderer.domElement);
+    
+            // 2. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 0.5;
+            controls.maxDistance = 10;
+    
+            // 3. Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1.5, 1);
+            scene.add(directionalLight);
+    
+            // 4. Carregador GLB
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadProgress = document.getElementById('load-progress');
+            const loadStatus = document.getElementById('load-status');
+            
+            if (typeof THREE.GLTFLoader === 'function') {
+                const loader = new THREE.GLTFLoader();
+                let model;
+    
+                loader.load(
+                    // URL do modelo
+                    '3d/gengibre1.glb',
+                    
+                    // Sucesso
+                    function (gltf) {
+                        model = gltf.scene;
+                        
+                        // Ajusta escala e posição
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        model.position.sub(center);
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 1.5 / maxDim;
+                        model.scale.set(scale, scale, scale);
+                        
+                        scene.add(model);
+                        
+                        // Esconde tela de carregamento
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    },
+                    
+                    // Progresso
+                    function (xhr) {
+                        if (xhr.lengthComputable) {
+                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                            loadProgress.style.width = `${percent}%`;
+                            loadStatus.textContent = 
+                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                        }
+                    },
+                    
+                    // Erro
+                    function (error) {
+                        console.error('Erro ao carregar:', error);
+                        loadStatus.innerHTML = 
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
+                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                    }
+                );
+            } else {
+                loadStatus.innerHTML = 
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
+                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+            }
+    
+            // 5. Animação
+            function animate() {
+                requestAnimationFrame(animate);
+                if (controls) controls.update();
+                if (renderer && scene && camera) renderer.render(scene, camera);
+            }
+            animate();
+    
+            // 6. Redimensionamento
+            window.addEventListener('resize', () => {
+                if (camera && renderer && container) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,229 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malvarisco | Farmácia da Mata</title>
+    <title>Malvarisco | Farmácia Verde</title>
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style-plants.css">
     <!-- Bibliotecas Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <style>
-        :root {
-            --primary-green: #2ecc71;
-            --secondary-green: #27ae60;
-            --light-green: #d4edda;
-            --dark-green: #1e8449;
-            --text-color: #2c3e50;
-            --background-color: #f4f6f7;
-            --pdf-red: #e74c3c;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .herb-page {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .herb-page-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .herb-page-title {
-            color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--primary-green);
-            font-size: 2em;
-        }
-
-        .herb-section {
-            margin-bottom: 25px;
-        }
-
-        .herb-section h2 {
-            color: var(--secondary-green);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .herb-section h3 {
-            color: var(--dark-green);
-            margin: 15px 0 10px;
-            font-size: 1.2em;
-        }
-
-        .herb-section ul {
-            padding-left: 20px;
-        }
-
-        .herb-section li {
-            margin-bottom: 8px;
-        }
-
-        .pdf-section {
-            background-color: var(--light-green);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: center;
-            border: 1px dashed var(--primary-green);
-        }
-
-        .pdf-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--pdf-red);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px 0;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .pdf-btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        .pdf-note {
-            font-size: 0.85em;
-            color: #666;
-            font-style: italic;
-            margin-top: 8px;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .back-to-home:hover {
-            background-color: var(--secondary-green);
-        }
-
-        /* Estilos para o container 3D */
-        #model-container {
-            width: 100%;
-            height: 400px;
-            margin: 20px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #f8f9fa;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        #model-container:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .model-instructions {
-            text-align: center;
-            font-style: italic;
-            color: #666;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        .loading-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(248, 249, 250, 0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .loading-bar {
-            width: 80%;
-            height: 20px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .loading-progress {
-            height: 100%;
-            background: var(--primary-green);
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        @media (max-width: 600px) {
-            .herb-page {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            .herb-page-image {
-                height: 200px;
-            }
-            
-            #model-container {
-                height: 300px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Botão "Voltar" no topo -->
@@ -252,52 +38,80 @@
         </div>
         
         <!-- Restante do conteúdo... -->
+        <div class="herb-header">
+            <h1>Malvarisco <em>(Plectranthus amboinicus)</em></h1>
+            <div class="synonyms">
+                <p><strong>Também conhecido como:</strong> Hortelã-graúda, Hortelã-pimenta, Hortelã-gorda, Hortelã-da-folha-grossa, Boldo-da-terra</p>
+            </div>
+        </div>
+        
         <div class="herb-section">
             <h2>Descrição Botânica</h2>
-            <p>O Malvarisco (Plectranthus amboinicus) é uma planta herbácea perene, suculenta, aromática, com caules rasteiros ou prostrados. Suas folhas são grossas, carnosas, aveludadas, com bordas crenadas e um aroma forte e característico quando maceradas. Pode atingir entre 30-90 cm de altura e se espalha facilmente. As flores são pequenas, de cor lilás pálido, dispostas em inflorescências terminais.</p>
+            <p>O Malvarisco é uma planta que:</p>
+            <ul>
+                <li>Vive por vários anos (perene)</li>
+                <li>Tem caules que podem crescer deitados ou eretos</li>
+                <li>Possui folhas grossas, macias e peludas (aveludadas) com bordas arredondadas</li>
+                <li>Quando esmagadas, suas folhas soltam um cheiro forte característico</li>
+                <li>Cresce de 30 cm até 90 cm de altura</li>
+                <li>Se espalha com facilidade</li>
+                <li>Produz pequenas flores de cor roxa clara que nascem nas pontas dos ramos</li>
+            </ul>
         </div>
         
         <div class="herb-section">
             <h2>Propriedades Medicinais</h2>
             <ul>
-                <li><strong>Expectorante:</strong> Auxilia na eliminação do catarro e alívio de afecções respiratórias</li>
-                <li><strong>Anti-inflamatório:</strong> Ajuda a reduzir processos inflamatórios, especialmente do trato respiratório</li>
-                <li><strong>Antimicrobiano:</strong> Possui propriedades que combatem diversos microrganismos</li>
-                <li><strong>Analgésico:</strong> Auxilia no alívio de dores, especialmente de garganta</li>
-                <li><strong>Antitussígeno:</strong> Ajuda a aliviar a tosse</li>
+                <li><strong>Expectorante:</strong> Ajuda a soltar e eliminar o catarro</li>
+                <li><strong>Anti-inflamatório:</strong> Diminui inflamações, principalmente nos pulmões e garganta</li>
+                <li><strong>Antimicrobiano:</strong> Mata bactérias e outros micróbios</li>
+                <li><strong>Analgésico:</strong> Alivia dores, especialmente de garganta</li>
+                <li><strong>Antitussígeno:</strong> Reduz a tosse</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Modos de Uso</h2>
-            <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Utilize 2 a 3 folhas frescas (ou 1 colher de sopa de folhas secas) para cada xícara de água. Coloque água para ferver e, após desligar o fogo, adicione as folhas. Tampe e deixe em infusão por 10 minutos. Coe antes de consumir.</p>
-            <p><strong>Dosagem:</strong> Beber 3 a 4 xícaras ao dia, de preferência morno.</p>
             
-            <h3>Xarope</h3>
-            <p><strong>Preparo:</strong> Em uma panela, adicione 3 xícaras de água, 1 xícara de folhas de malvarisco picadas e 1 xícara de açúcar mascavo. Leve ao fogo baixo por 20 minutos. Coe, deixe esfriar e guarde em recipiente de vidro na geladeira.</p>
-            <p><strong>Dosagem:</strong> 1 colher de sopa, 3 vezes ao dia.</p>
+            <h3>Chá das Folhas</h3>
+            <p><strong>Como fazer:</strong></p>
+            <ol>
+                <li>Ferva 1 xícara de água</li>
+                <li>Desligue o fogo e acrescente 2-3 folhas frescas (ou 1 colher de folhas secas)</li>
+                <li>Tampe e deixe descansar por 10 minutos</li>
+                <li>Coe e beba ainda morno</li>
+            </ol>
+            <p><strong>Quantidade:</strong> 3-4 xícaras por dia</p>
+            
+            <h3>Xarope Caseiro</h3>
+            <p><strong>Como fazer:</strong></p>
+            <ol>
+                <li>Misture em uma panela: 3 xícaras de água + 1 xícara de folhas picadas + 1 xícara de açúcar mascavo</li>
+                <li>Cozinhe em fogo baixo por 20 minutos</li>
+                <li>Coe e guarde em um pote de vidro na geladeira</li>
+            </ol>
+            <p><strong>Quantidade:</strong> 1 colher de sopa, 3 vezes ao dia</p>
         </div>
         
         <div class="herb-section">
-            <h2>Contraindicações</h2>
+            <h2>Cuidados e Contraindicações</h2>
             <ul>
-                <li>Gestantes e lactantes devem evitar o uso</li>
-                <li>Pessoas com problemas hepáticos devem consultar um médico antes do uso</li>
-                <li>Não recomendado para crianças menores de 2 anos</li>
-                <li>Pode interagir com medicamentos anticoagulantes</li>
-                <li>Em doses altas pode causar irritação gástrica</li>
+                <li>Não deve ser usado por grávidas ou mulheres amamentando</li>
+                <li>Pessoas com problemas no fígado devem consultar médico antes de usar</li>
+                <li>Não é recomendado para crianças menores de 2 anos</li>
+                <li>Pode afetar o efeito de remédios para afinar o sangue</li>
+                <li>Em excesso, pode irritar o estômago</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Curiosidades</h2>
             <ul>
-                <li>Também é conhecido como hortelã-graúda, hortelã-pimenta, hortelã-gorda ou hortelã-da-folha-grossa</li>
-                <li>É originário da Ásia Tropical e foi introduzido no Brasil durante o período colonial</li>
-                <li>Na culinária indiana, é utilizado em temperos e em alguns pratos tradicionais</li>
-                <li>É uma planta resistente que se adapta bem a diversas condições e é de fácil cultivo</li>
-                <li>Na medicina tradicional, é usado há séculos para tratar problemas respiratórios em diversas culturas</li>
+                <li>Veio da Ásia e chegou ao Brasil na época da colonização</li>
+                <li>Na Índia, é usado como tempero em vários pratos tradicionais</li>
+                <li>É uma planta muito resistente e fácil de cultivar</li>
+                <li>Há séculos é usado como remédio caseiro para gripes e tosses</li>
+                <li>Seu cheiro forte ajuda a espantar alguns insetos</li>
             </ul>
         </div>
 

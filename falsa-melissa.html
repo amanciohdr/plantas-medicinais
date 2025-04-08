@@ -3,171 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boldo | Guia de Plantas Medicinais</title>
-    <style>
-        :root {
-            --primary-green: #2ecc71;
-            --secondary-green: #27ae60;
-            --light-green: #d4edda;
-            --dark-green: #1e8449;
-            --text-color: #2c3e50;
-            --background-color: #f4f6f7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .herb-page {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .herb-page-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .herb-page-title {
-            color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--primary-green);
-            font-size: 2em;
-        }
-
-        .herb-section {
-            margin-bottom: 25px;
-        }
-
-        .herb-section h2 {
-            color: var(--secondary-green);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .herb-section ul {
-            padding-left: 20px;
-        }
-
-        .herb-section li {
-            margin-bottom: 8px;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .back-to-home:hover {
-            background-color: var(--secondary-green);
-        }
-
-        @media (max-width: 600px) {
-            .herb-page {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            .herb-page-image {
-                height: 200px;
-            }
-        }
-    </style>
+    <title>Falsa-Melissa | Farmácia Verde</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style-plants.css">
+    <!-- Bibliotecas Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
     
     <div class="herb-page">
-        <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image">
+        <img src="imagens/falsa-melissa.jpg" alt="falsa-melissa" class="herb-page-image">
         
-        <h1 class="herb-page-title">Nome (Espécie)</h1>
+        <h1 class="herb-page-title">FALSA-MELISSA (Lippia alba)</h1>
         
+        <!-- Seção do Modelo 3D -->
         <div class="herb-section">
-            <h2>Descrição Botânica</h2>
-            <p>INSIRA AQUI A DESCRIÇÃO</p>
+            <h2>Visualização 3D</h2>
+            <div id="model-container">
+                <div class="loading-overlay" id="loading-overlay">
+                    <p>Carregando modelo 3D...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="load-progress"></div>
+                    </div>
+                    <small id="load-status">Iniciando...</small>
+                </div>
+            </div>
+            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Propriedades Medicinais</h2>
-            <ul>
-                <li><strong>Propriedade1:</strong> Descrição</li>
-                <li><strong>Propriedade2:</strong> Descrição</li>
-                <li><strong>Propriedade3:</strong> Descrição</li>
-            </ul>
+        <!-- Restante do conteúdo... -->
+        <div class="herb-container">
+            <!-- University Header -->
+            <div class="university-header">
+                <h1>UNIVERSIDADE ESTADUAL DE CAMPINAS</h1>
+                <h2>Faculdade de Ciências Farmacêuticas</h2>
+                <p>Docente: Profa. Dra. Alexandra Christine Helena Frankland Sawaya</p>
+                <p>Discente: Ana de Moraes de Souza</p>
+                <p>CAMPINAS-SP 2023</p>
+            </div>
+        
+            <!-- Plant Header -->
+            <div class="plant-header">
+                <h1>FALSA-MELISSA <em>(Lippia alba)</em></h1>
+            </div>
+        
+            <!-- Sinônimos -->
+            <div class="herb-section">
+                <h2>Sinônimos</h2>
+                <ul>
+                    <li>Erva-cidreira brasileira</li>
+                    <li>Salva-limão</li>
+                    <li>Alecrim-do-campo</li>
+                    <li>Chá-de-tabuleiro</li>
+                    <li><em>Lantana alba</em> Mill.</li>
+                    <li><em>Lippia citrata</em> Willd.</li>
+                </ul>
+            </div>
+        
+            <!-- Descrição Morfológica -->
+            <div class="herb-section">
+                <h2>Descrição da Planta</h2>
+                <ul>
+                    <li><strong>Porte:</strong> Arbusto perene (até 3m de altura)</li>
+                    <li><strong>Caule:</strong> 
+                        <ul>
+                            <li>Retangular (seção transversal)</li>
+                            <li>Com cerdas jovens</li>
+                            <li>Ramificado e arqueado</li>
+                        </ul>
+                    </li>
+                    <li><strong>Folhas:</strong>
+                        <ul>
+                            <li>Opostas, ovais com bordas recortadas</li>
+                            <li>Verdes a verde-acinzentadas</li>
+                            <li>Superfície estriada e levemente pilosa</li>
+                        </ul>
+                    </li>
+                    <li><strong>Flores:</strong>
+                        <ul>
+                            <li>Pequenas, roxas com fundo amarelo</li>
+                            <li>Inflorescência axilar em forma de capítulo</li>
+                        </ul>
+                    </li>
+                    <li><strong>Fruto:</strong> Drupa arredondada rosa-púrpura</li>
+                    <li><strong>Aroma:</strong> Intensamente perfumada</li>
+                </ul>
+            </div>
+        
+            <!-- Para Que Serve -->
+            <div class="herb-section">
+                <h2>Para Que Serve</h2>
+                <ul>
+                    <li><strong>Usos tradicionais:</strong>
+                        <ul>
+                            <li>Calmante e relaxante muscular</li>
+                            <li>Alívio de dores</li>
+                            <li>Problemas gastrointestinais</li>
+                            <li>Distúrbios respiratórios</li>
+                        </ul>
+                    </li>
+                    <li><strong>Atividades comprovadas:</strong>
+                        <ul>
+                            <li>Ansiolítica e sedativa</li>
+                            <li>Antimicrobiana e antifúngica</li>
+                            <li>Antioxidante</li>
+                            <li>Espasmolítica</li>
+                            <li>Analgésica</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Como Usar -->
+            <div class="herb-section">
+                <h2>Como Usar</h2>
+                <h3>Chá (Infusão)</h3>
+                <ol>
+                    <li>1 colher de sopa de folhas frescas</li>
+                    <li>500mL de água fervente</li>
+                    <li>Picar as folhas e adicionar água</li>
+                    <li>Tampar e deixar repousar 10 minutos</li>
+                    <li>Coe antes de beber</li>
+                </ol>
+                <p><strong>Posologia:</strong> 4-6 xícaras/dia</p>
+                <p><strong>Duração máxima:</strong> 3 meses contínuos</p>
+        
+                <h3>Outras Preparações</h3>
+                <ul>
+                    <li>Compressas</li>
+                    <li>Banhos</li>
+                    <li>Xaropes</li>
+                    <li>Tinturas</li>
+                </ul>
+            </div>
+        
+            <!-- Cuidados e Contraindicações -->
+            <div class="herb-section">
+                <h2>Cuidados e Contraindicações</h2>
+                <ul>
+                    <li><strong>Contraindicações absolutas:</strong>
+                        <ul>
+                            <li>Grávidas (risco de aborto)</li>
+                            <li>Lactantes</li>
+                        </ul>
+                    </li>
+                    <li><strong>Efeitos adversos:</strong>
+                        <ul>
+                            <li>Doses altas podem causar:
+                                <ul>
+                                    <li>Diarréia</li>
+                                    <li>Náuseas</li>
+                                    <li>Vômitos</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Precauções:</strong>
+                        <ul>
+                            <li>Não ultrapassar a dose recomendada</li>
+                            <li>Respeitar o tempo máximo de uso</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Cultivo -->
+            <div class="herb-section">
+                <h2>Cultivo</h2>
+                <ul>
+                    <li><strong>Clima:</strong> Quente ou ameno</li>
+                    <li><strong>Solo:</strong> Rico em matéria orgânica e úmido</li>
+                    <li><strong>Propagação:</strong>
+                        <ul>
+                            <li>Estacas de caule (15cm com folhas)</li>
+                            <li>Enraíza facilmente em água</li>
+                        </ul>
+                    </li>
+                    <li><strong>Resistência:</strong> Poucos problemas com pragas</li>
+                    <li><strong>Origem:</strong> América do Sul (Mata Atlântica)</li>
+                </ul>
+            </div>
+        
+            <!-- Curiosidades -->
+            <div class="herb-section">
+                <h2>Curiosidades</h2>
+                <ul>
+                    <li>Possui três quimiotipos principais com diferentes composições químicas</li>
+                    <li>Usada como PANC (Planta Alimentícia Não Convencional) no Nordeste</li>
+                    <li>Seu óleo essencial é usado em perfumes e cosméticos</li>
+                    <li>Estudada como repelente natural e agrotóxico biológico</li>
+                    <li>Mecanismo de ação: Atua no sistema GABAérgico</li>
+                </ul>
+            </div>
+        
+            <!-- Composição Química -->
+            <div class="herb-section">
+                <h2>Composição Química</h2>
+                <ul>
+                    <li><strong>Principais componentes:</strong>
+                        <ul>
+                            <li>Citral (calmante, aromático)</li>
+                            <li>Linalol (antimicrobiano, hipotensor)</li>
+                            <li>Mirceno (analgésico, anti-inflamatório)</li>
+                            <li>Limoneno (antimicrobiano, cicatrizante)</li>
+                            <li>Carvona (bactericida, fungicida)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Variações:</strong> Composição muda conforme região de cultivo</li>
+                </ul>
+            </div>
+        
+            <!-- References -->
+            <div class="references">
+                <h2>Referências</h2>
+                <ul>
+                    <li>Soares (2001) - UFSC</li>
+                    <li>Tavares et al. (2005) - Revista Brasileira de Farmacognosia</li>
+                    <li>Cartilha SUS Campinas (2018)</li>
+                    <li>Manual CRF-SP (2022)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seção: Download do PDF -->
+        <div class="pdf-section">
+            <h2>Monografia Científica</h2>
+            <a href="pdf/falsa-melissa.pdf" class="pdf-btn" download>
+                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+            </a>
+            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Modos de Uso</h2>
-            <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
-            <p><strong>Dosagem:</strong> Posologia</p>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Contraindicações</h2>
-            <ul>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-            </ul>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Curiosidades</h2>
-            <ul>
-                <li>Curiosidade1</li>
-                <li>Curiosidade2</li>
-                <li>Curiosidade3</li>
-            </ul>
-        </div>
-        
-        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <!-- Botão "Voltar para Catálogo" -->
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Configuração da cena Three.js
+            const container = document.getElementById('model-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            const camera = new THREE.PerspectiveCamera(
+                45, 
+                container.clientWidth / container.clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 0, 2);
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            if (renderer.outputEncoding !== undefined) {
+                renderer.outputEncoding = THREE.sRGBEncoding;
+            }
+            container.appendChild(renderer.domElement);
+    
+            // 2. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 0.5;
+            controls.maxDistance = 10;
+    
+            // 3. Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1.5, 1);
+            scene.add(directionalLight);
+    
+            // 4. Carregador GLB
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadProgress = document.getElementById('load-progress');
+            const loadStatus = document.getElementById('load-status');
+            
+            if (typeof THREE.GLTFLoader === 'function') {
+                const loader = new THREE.GLTFLoader();
+                let model;
+    
+                loader.load(
+                    // URL do modelo
+                    '3d/falsa-melissa.glb',
+                    
+                    // Sucesso
+                    function (gltf) {
+                        model = gltf.scene;
+                        
+                        // Ajusta escala e posição
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        model.position.sub(center);
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 1.5 / maxDim;
+                        model.scale.set(scale, scale, scale);
+                        
+                        scene.add(model);
+                        
+                        // Esconde tela de carregamento
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    },
+                    
+                    // Progresso
+                    function (xhr) {
+                        if (xhr.lengthComputable) {
+                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                            loadProgress.style.width = `${percent}%`;
+                            loadStatus.textContent = 
+                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                        }
+                    },
+                    
+                    // Erro
+                    function (error) {
+                        console.error('Erro ao carregar:', error);
+                        loadStatus.innerHTML = 
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
+                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                    }
+                );
+            } else {
+                loadStatus.innerHTML = 
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
+                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+            }
+    
+            // 5. Animação
+            function animate() {
+                requestAnimationFrame(animate);
+                if (controls) controls.update();
+                if (renderer && scene && camera) renderer.render(scene, camera);
+            }
+            animate();
+    
+            // 6. Redimensionamento
+            window.addEventListener('resize', () => {
+                if (camera && renderer && container) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

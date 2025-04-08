@@ -3,171 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boldo | Guia de Plantas Medicinais</title>
-    <style>
-        :root {
-            --primary-green: #2ecc71;
-            --secondary-green: #27ae60;
-            --light-green: #d4edda;
-            --dark-green: #1e8449;
-            --text-color: #2c3e50;
-            --background-color: #f4f6f7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .herb-page {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .herb-page-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .herb-page-title {
-            color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--primary-green);
-            font-size: 2em;
-        }
-
-        .herb-section {
-            margin-bottom: 25px;
-        }
-
-        .herb-section h2 {
-            color: var(--secondary-green);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .herb-section ul {
-            padding-left: 20px;
-        }
-
-        .herb-section li {
-            margin-bottom: 8px;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .back-to-home:hover {
-            background-color: var(--secondary-green);
-        }
-
-        @media (max-width: 600px) {
-            .herb-page {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            .herb-page-image {
-                height: 200px;
-            }
-        }
-    </style>
+    <title>Malvarisco | Farmácia Verde</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style-plants.css">
+    <!-- Bibliotecas Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
     
     <div class="herb-page">
-        <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image">
+        <img src="imagens/malvarisco.jpg" alt="Malvarisco" class="herb-page-image">
         
-        <h1 class="herb-page-title">Nome (Espécie)</h1>
+        <h1 class="herb-page-title">🍀 Malvarisco (Plectranthus amboinicus)</h1>
+        
+        <!-- Seção do Modelo 3D -->
+        <div class="herb-section">
+            <h2>Visualização 3D</h2>
+            <div id="model-container">
+                <div class="loading-overlay" id="loading-overlay">
+                    <p>Carregando modelo 3D...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="load-progress"></div>
+                    </div>
+                    <small id="load-status">Iniciando...</small>
+                </div>
+            </div>
+            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
+        </div>
+        
+        <!-- Restante do conteúdo... -->
+        <div class="herb-header">
+            <h1>Malvarisco <em>(Plectranthus amboinicus)</em></h1>
+            <div class="synonyms">
+                <p><strong>Também conhecido como:</strong> Hortelã-graúda, Hortelã-pimenta, Hortelã-gorda, Hortelã-da-folha-grossa, Boldo-da-terra</p>
+            </div>
+        </div>
         
         <div class="herb-section">
             <h2>Descrição Botânica</h2>
-            <p>INSIRA AQUI A DESCRIÇÃO</p>
+            <p>O Malvarisco é uma planta que:</p>
+            <ul>
+                <li>Vive por vários anos (perene)</li>
+                <li>Tem caules que podem crescer deitados ou eretos</li>
+                <li>Possui folhas grossas, macias e peludas (aveludadas) com bordas arredondadas</li>
+                <li>Quando esmagadas, suas folhas soltam um cheiro forte característico</li>
+                <li>Cresce de 30 cm até 90 cm de altura</li>
+                <li>Se espalha com facilidade</li>
+                <li>Produz pequenas flores de cor roxa clara que nascem nas pontas dos ramos</li>
+            </ul>
         </div>
         
         <div class="herb-section">
             <h2>Propriedades Medicinais</h2>
             <ul>
-                <li><strong>Propriedade1:</strong> Descrição</li>
-                <li><strong>Propriedade2:</strong> Descrição</li>
-                <li><strong>Propriedade3:</strong> Descrição</li>
+                <li><strong>Expectorante:</strong> Ajuda a soltar e eliminar o catarro</li>
+                <li><strong>Anti-inflamatório:</strong> Diminui inflamações, principalmente nos pulmões e garganta</li>
+                <li><strong>Antimicrobiano:</strong> Mata bactérias e outros micróbios</li>
+                <li><strong>Analgésico:</strong> Alivia dores, especialmente de garganta</li>
+                <li><strong>Antitussígeno:</strong> Reduz a tosse</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Modos de Uso</h2>
-            <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
-            <p><strong>Dosagem:</strong> Posologia</p>
+            
+            <h3>Chá das Folhas</h3>
+            <p><strong>Como fazer:</strong></p>
+            <ol>
+                <li>Ferva 1 xícara de água</li>
+                <li>Desligue o fogo e acrescente 2-3 folhas frescas (ou 1 colher de folhas secas)</li>
+                <li>Tampe e deixe descansar por 10 minutos</li>
+                <li>Coe e beba ainda morno</li>
+            </ol>
+            <p><strong>Quantidade:</strong> 3-4 xícaras por dia</p>
+            
+            <h3>Xarope Caseiro</h3>
+            <p><strong>Como fazer:</strong></p>
+            <ol>
+                <li>Misture em uma panela: 3 xícaras de água + 1 xícara de folhas picadas + 1 xícara de açúcar mascavo</li>
+                <li>Cozinhe em fogo baixo por 20 minutos</li>
+                <li>Coe e guarde em um pote de vidro na geladeira</li>
+            </ol>
+            <p><strong>Quantidade:</strong> 1 colher de sopa, 3 vezes ao dia</p>
         </div>
         
         <div class="herb-section">
-            <h2>Contraindicações</h2>
+            <h2>Cuidados e Contraindicações</h2>
             <ul>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
+                <li>Não deve ser usado por grávidas ou mulheres amamentando</li>
+                <li>Pessoas com problemas no fígado devem consultar médico antes de usar</li>
+                <li>Não é recomendado para crianças menores de 2 anos</li>
+                <li>Pode afetar o efeito de remédios para afinar o sangue</li>
+                <li>Em excesso, pode irritar o estômago</li>
             </ul>
         </div>
         
         <div class="herb-section">
             <h2>Curiosidades</h2>
             <ul>
-                <li>Curiosidade1</li>
-                <li>Curiosidade2</li>
-                <li>Curiosidade3</li>
+                <li>Veio da Ásia e chegou ao Brasil na época da colonização</li>
+                <li>Na Índia, é usado como tempero em vários pratos tradicionais</li>
+                <li>É uma planta muito resistente e fácil de cultivar</li>
+                <li>Há séculos é usado como remédio caseiro para gripes e tosses</li>
+                <li>Seu cheiro forte ajuda a espantar alguns insetos</li>
             </ul>
         </div>
+
+        <!-- Seção: Download do PDF -->
+        <div class="pdf-section">
+            <h2>Monografia Científica</h2>
+            <a href="pdf/malvarisco.pdf" class="pdf-btn" download>
+                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+            </a>
+            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+        </div>
         
-        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <!-- Botão "Voltar para Catálogo" -->
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Configuração da cena Three.js
+            const container = document.getElementById('model-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            const camera = new THREE.PerspectiveCamera(
+                45, 
+                container.clientWidth / container.clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 0, 2);
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            if (renderer.outputEncoding !== undefined) {
+                renderer.outputEncoding = THREE.sRGBEncoding;
+            }
+            container.appendChild(renderer.domElement);
+    
+            // 2. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 0.5;
+            controls.maxDistance = 10;
+    
+            // 3. Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1.5, 1);
+            scene.add(directionalLight);
+    
+            // 4. Carregador GLB
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadProgress = document.getElementById('load-progress');
+            const loadStatus = document.getElementById('load-status');
+            
+            if (typeof THREE.GLTFLoader === 'function') {
+                const loader = new THREE.GLTFLoader();
+                let model;
+    
+                loader.load(
+                    // URL do modelo
+                    '3d/malvarisco.glb',
+                    
+                    // Sucesso
+                    function (gltf) {
+                        model = gltf.scene;
+                        
+                        // Ajusta escala e posição
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        model.position.sub(center);
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 1.5 / maxDim;
+                        model.scale.set(scale, scale, scale);
+                        
+                        scene.add(model);
+                        
+                        // Esconde tela de carregamento
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    },
+                    
+                    // Progresso
+                    function (xhr) {
+                        if (xhr.lengthComputable) {
+                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                            loadProgress.style.width = `${percent}%`;
+                            loadStatus.textContent = 
+                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                        }
+                    },
+                    
+                    // Erro
+                    function (error) {
+                        console.error('Erro ao carregar:', error);
+                        loadStatus.innerHTML = 
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
+                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                    }
+                );
+            } else {
+                loadStatus.innerHTML = 
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
+                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+            }
+    
+            // 5. Animação
+            function animate() {
+                requestAnimationFrame(animate);
+                if (controls) controls.update();
+                if (renderer && scene && camera) renderer.render(scene, camera);
+            }
+            animate();
+    
+            // 6. Redimensionamento
+            window.addEventListener('resize', () => {
+                if (camera && renderer && container) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

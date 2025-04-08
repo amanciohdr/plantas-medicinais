@@ -3,171 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boldo | Guia de Plantas Medicinais</title>
-    <style>
-        :root {
-            --primary-green: #2ecc71;
-            --secondary-green: #27ae60;
-            --light-green: #d4edda;
-            --dark-green: #1e8449;
-            --text-color: #2c3e50;
-            --background-color: #f4f6f7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: var(--secondary-green);
-        }
-
-        .herb-page {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .herb-page-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .herb-page-title {
-            color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--primary-green);
-            font-size: 2em;
-        }
-
-        .herb-section {
-            margin-bottom: 25px;
-        }
-
-        .herb-section h2 {
-            color: var(--secondary-green);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .herb-section ul {
-            padding-left: 20px;
-        }
-
-        .herb-section li {
-            margin-bottom: 8px;
-        }
-
-        .back-to-home {
-            display: inline-block;
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-
-        .back-to-home:hover {
-            background-color: var(--secondary-green);
-        }
-
-        @media (max-width: 600px) {
-            .herb-page {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            .herb-page-image {
-                height: 200px;
-            }
-        }
-    </style>
+    <title>Guaco | Farmácia Verde</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style-plants.css">
+    <!-- Bibliotecas Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo (canto esquerdo) -->
+    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
     
     <div class="herb-page">
-        <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image">
+        <img src="imagens/guaco.jpg" alt="Malvarisco" class="herb-page-image">
         
-        <h1 class="herb-page-title">Nome (Espécie)</h1>
+        <h1 class="herb-page-title">Guaco (Mikania laevigata)</h1>
         
+        <!-- Seção do Modelo 3D -->
         <div class="herb-section">
-            <h2>Descrição Botânica</h2>
-            <p>INSIRA AQUI A DESCRIÇÃO</p>
+            <h2>Visualização 3D</h2>
+            <div id="model-container">
+                <div class="loading-overlay" id="loading-overlay">
+                    <p>Carregando modelo 3D...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="load-progress"></div>
+                    </div>
+                    <small id="load-status">Iniciando...</small>
+                </div>
+            </div>
+            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Propriedades Medicinais</h2>
-            <ul>
-                <li><strong>Propriedade1:</strong> Descrição</li>
-                <li><strong>Propriedade2:</strong> Descrição</li>
-                <li><strong>Propriedade3:</strong> Descrição</li>
-            </ul>
+        <!-- Restante do conteúdo... -->
+        <div class="herb-container">
+            <!-- University Header -->
+            <div class="university-header">
+                <h1>UNIVERSIDADE ESTADUAL DE CAMPINAS</h1>
+                <h2>Faculdade de Ciências Farmacêuticas</h2>
+                <p>FR209 - Uso Seguro de Plantas Medicinais dos Gêneros Mikania e Plectranthus</p>
+                <p>Docente: Profa. Dra. Alexandra Christine Helena Frankland Sawaya</p>
+                <p>Alunos: Gabriela Parolin Trindade & Giovanna Ribeiro De Oliveira</p>
+                <p>CAMPINAS-SP 2023</p>
+            </div>
+        
+            <!-- Plant Header -->
+            <div class="plant-header">
+                <h1>GUACO <em>(Mikania laevigata)</em></h1>
+            </div>
+        
+            <!-- Sinônimos -->
+            <div class="herb-section">
+                <h2>Sinônimos</h2>
+                <ul>
+                    <li>Guaco-de-cheiro</li>
+                    <li>Erva-de-cobra</li>
+                    <li>Coração-de-Jesus</li>
+                    <li>Guaco-do-mato</li>
+                    <li>Mikania glomerata (espécie similar)</li>
+                </ul>
+            </div>
+        
+            <!-- Descrição Morfológica -->
+            <div class="herb-section">
+                <h2>Descrição da Planta</h2>
+                <ul>
+                    <li><strong>Hábito:</strong> Subarbusto/liana perene</li>
+                    <li><strong>Caule:</strong>
+                        <ul>
+                            <li>Cilíndrico e ramificado</li>
+                            <li>Lenhoso e glabro</li>
+                            <li>Cor: castanho-acinzentado (velho) a verde-claro (novo)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Folhas:</strong>
+                        <ul>
+                            <li>Opostas, oblongo-lanceoladas</li>
+                            <li>Face superior verde-escura e brilhante</li>
+                            <li>Aromáticas (cheiro doce característico)</li>
+                            <li>3-5 nervuras principais</li>
+                        </ul>
+                    </li>
+                    <li><strong>Flores:</strong>
+                        <ul>
+                            <li>Brancas e carnosas</li>
+                            <li>Dispostas em glomérulos</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Para Que Serve -->
+            <div class="herb-section">
+                <h2>Para Que Serve</h2>
+                <ul>
+                    <li><strong>Usos tradicionais:</strong>
+                        <ul>
+                            <li>Doenças respiratórias (tosse, bronquite, asma)</li>
+                            <li>Picadas de cobra (uso andino)</li>
+                            <li>Reumatismo e nevralgias</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ações farmacológicas:</strong>
+                        <ul>
+                            <li>Broncodilatadora</li>
+                            <li>Expectorante e mucolítica</li>
+                            <li>Anti-inflamatória</li>
+                            <li>Antimicrobiana</li>
+                            <li>Antialérgica suave</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Como Usar -->
+            <div class="herb-section">
+                <h2>Como Usar</h2>
+                
+                <h3>Infusão (Chá)</h3>
+                <ol>
+                    <li>Água fervente sobre folhas secas</li>
+                    <li>Abafar por 5-10 minutos</li>
+                    <li>Coe e beba imediatamente</li>
+                </ol>
+                <p><strong>Dose:</strong> 150mL, 2 vezes/dia (acima de 12 anos)</p>
+        
+                <h3>Xarope Caseiro</h3>
+                <ol>
+                    <li>20 folhas frescas picadas</li>
+                    <li>150mL água + 255g açúcar</li>
+                    <li>Cozinhar em fogo brando por 5min (tampado)</li>
+                    <li>Coe, acrescente açúcar e dissolva</li>
+                    <li>Armazenar em vidro âmbar na geladeira</li>
+                </ol>
+                <p><strong>Dosagem:</strong>
+                    <ul>
+                        <li>3-6 anos: 5mL (1 col. chá) 2x/dia</li>
+                        <li>7-12 anos: 10mL (1 col. sobremesa) 3x/dia</li>
+                        <li>Acima 12 anos: 15mL (1 col. sopa) 3x/dia</li>
+                    </ul>
+                </p>
+                <p><strong>Validade:</strong> 7 dias refrigerado</p>
+        
+                <h3>Tintura</h3>
+                <ul>
+                    <li>1-3mL, 3 vezes/dia (adultos)</li>
+                    <li>1-3 gotas/kg/dia (crianças)</li>
+                </ul>
+            </div>
+        
+            <!-- Cuidados e Contraindicações -->
+            <div class="herb-section">
+                <h2>Cuidados e Contraindicações</h2>
+                <ul>
+                    <li><strong>Contraindicações:</strong>
+                        <ul>
+                            <li>Grávidas e lactantes</li>
+                            <li>Crianças menores de 1 ano</li>
+                            <li>Diabéticos (para xarope com açúcar)</li>
+                            <li>Pacientes com distúrbios hemorrágicos</li>
+                            <li>Usuários de anticoagulantes</li>
+                        </ul>
+                    </li>
+                    <li><strong>Efeitos adversos:</strong>
+                        <ul>
+                            <li>Vômitos e diarreia (em excesso)</li>
+                            <li>Taquicardia (especialmente em bebês)</li>
+                            <li>Hemorragias (uso prolongado)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Interações:</strong>
+                        <ul>
+                            <li>Anticoagulantes (aumenta risco hemorrágico)</li>
+                            <li>Antibióticos (tetraciclinas, penicilina)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Cultivo -->
+            <div class="herb-section">
+                <h2>Cultivo</h2>
+                <ul>
+                    <li><strong>Propagação:</strong> Estacas de caule (preferencial) ou sementes</li>
+                    <li><strong>Solo:</strong> Arenoso e úmido</li>
+                    <li><strong>Adaptação:</strong> Cresce em solos degradados (regenera o solo)</li>
+                    <li><strong>Distribuição:</strong> Sul/Sudeste do Brasil (matas ciliares)</li>
+                    <li><strong>Curiosidade:</strong> Atrai abelhas melíferas na floração</li>
+                </ul>
+            </div>
+        
+            <!-- Curiosidades -->
+            <div class="herb-section">
+                <h2>Curiosidades</h2>
+                <ul>
+                    <li>Principal composto ativo: Cumarina (aroma de baunilha)</li>
+                    <li>Mecanismo de ação: Bloqueia receptores de acetilcolina (broncodilatação)</li>
+                    <li>Saponinas fluidificam o muco (ação expectorante)</li>
+                    <li>Usado desde 1927 no Brasil para problemas pulmonares</li>
+                    <li>M. laevigata e M. glomerata são usadas indistintamente</li>
+                </ul>
+            </div>
+        
+            <!-- Composição Química -->
+            <div class="herb-section">
+                <h2>Composição Química</h2>
+                <ul>
+                    <li><strong>Principais ativos:</strong>
+                        <ul>
+                            <li>Cumarina (volátil - aroma característico)</li>
+                            <li>Saponinas (guacina)</li>
+                            <li>Ácidos cafeoilquínicos</li>
+                            <li>Lupeol (anti-inflamatório)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Óleos essenciais:</strong>
+                        <ul>
+                            <li>Mirceno</li>
+                            <li>Cineol</li>
+                            <li>Borneol</li>
+                        </ul>
+                    </li>
+                    <li><strong>Outros:</strong> Taninos, flavonoides, estigmasterol</li>
+                </ul>
+            </div>
+        
+            <!-- References -->
+            <div class="references">
+                <h2>Referências</h2>
+                <ul>
+                    <li>Cartilha SUS Campinas (2018)</li>
+                    <li>Revista Brasileira de Farmacognosia (2010)</li>
+                    <li>Fitoterapia Brasil (2023)</li>
+                    <li>Formulário de Fitoterápicos - ANVISA (2011)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seção: Download do PDF -->
+        <div class="pdf-section">
+            <h2>Monografia Científica</h2>
+            <a href="pdf/guaco.pdf" class="pdf-btn" download>
+                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+            </a>
+            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
         </div>
         
-        <div class="herb-section">
-            <h2>Modos de Uso</h2>
-            <h3>Chá</h3>
-            <p><strong>Preparo:</strong> Descrição de quantidade, modo de preparo e tempo</p>
-            <p><strong>Dosagem:</strong> Posologia</p>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Contraindicações</h2>
-            <ul>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-                <li>Contraindicação1</li>
-            </ul>
-        </div>
-        
-        <div class="herb-section">
-            <h2>Curiosidades</h2>
-            <ul>
-                <li>Curiosidade1</li>
-                <li>Curiosidade2</li>
-                <li>Curiosidade3</li>
-            </ul>
-        </div>
-        
-        <!-- Botão "Voltar para Catálogo" no rodapé -->
+        <!-- Botão "Voltar para Catálogo" -->
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Configuração da cena Three.js
+            const container = document.getElementById('model-container');
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f0f0);
+            
+            const camera = new THREE.PerspectiveCamera(
+                45, 
+                container.clientWidth / container.clientHeight, 
+                0.1, 
+                1000
+            );
+            camera.position.set(0, 0, 2);
+            
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            if (renderer.outputEncoding !== undefined) {
+                renderer.outputEncoding = THREE.sRGBEncoding;
+            }
+            container.appendChild(renderer.domElement);
+    
+            // 2. Controles
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 0.5;
+            controls.maxDistance = 10;
+    
+            // 3. Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1.5, 1);
+            scene.add(directionalLight);
+    
+            // 4. Carregador GLB
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadProgress = document.getElementById('load-progress');
+            const loadStatus = document.getElementById('load-status');
+            
+            if (typeof THREE.GLTFLoader === 'function') {
+                const loader = new THREE.GLTFLoader();
+                let model;
+    
+                loader.load(
+                    // URL do modelo
+                    '3d/guaco.glb',
+                    
+                    // Sucesso
+                    function (gltf) {
+                        model = gltf.scene;
+                        
+                        // Ajusta escala e posição
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+                        
+                        model.position.sub(center);
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 1.5 / maxDim;
+                        model.scale.set(scale, scale, scale);
+                        
+                        scene.add(model);
+                        
+                        // Esconde tela de carregamento
+                        loadingOverlay.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    },
+                    
+                    // Progresso
+                    function (xhr) {
+                        if (xhr.lengthComputable) {
+                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+                            loadProgress.style.width = `${percent}%`;
+                            loadStatus.textContent = 
+                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                        }
+                    },
+                    
+                    // Erro
+                    function (error) {
+                        console.error('Erro ao carregar:', error);
+                        loadStatus.innerHTML = 
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
+                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                    }
+                );
+            } else {
+                loadStatus.innerHTML = 
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
+                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+            }
+    
+            // 5. Animação
+            function animate() {
+                requestAnimationFrame(animate);
+                if (controls) controls.update();
+                if (renderer && scene && camera) renderer.render(scene, camera);
+            }
+            animate();
+    
+            // 6. Redimensionamento
+            window.addEventListener('resize', () => {
+                if (camera && renderer && container) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
