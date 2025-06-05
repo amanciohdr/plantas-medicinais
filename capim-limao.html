@@ -1,310 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capim-Limão | Farmácia Verde</title>
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="style-plants.css">
-    <!-- Bibliotecas Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capim-limão | Farmácia Verde</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style-plants.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo -->
-    <a href="index.html" class="back-button">← Voltar</a>
-    
-    <div class="herb-page">
-        <img src="imagens/capim-limao.jpg" alt="Capim-Limão" class="herb-page-image">
-        
-        <h1 class="herb-page-title">Capim-Limão (Cymbopogon citratus (DC.) Stapf)</h1>
-        
-        <!-- Seção do Modelo 3D -->
+  <a href="index.html" class="back-button">← Voltar</a>
 
-        <div class="herb-section">
-            
-            <h2>Visualização 3D</h2>
-            <div id="model-container">
-                <div class="loading-overlay" id="loading-overlay">
-                    <p>Carregando modelo 3D...</p>
-                    <div class="loading-bar">
-                        <div class="loading-progress" id="load-progress"></div>
-                    </div>
-                    <small id="load-status">Iniciando...</small>
-                </div>
-            </div>
-            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
-        </div>
-        
-        <!-- Restante do conteúdo... -->
-        <div class="herb-container">        
-            <!-- Sinônimos -->
-            <div class="herb-section">
-                <h2>Sinônimos</h2>
-                <ul>
-                    <li><em>Andropogon citratus</em> DC</li>
-                    <li>Capim-cidreira</li>
-                    <li>Capim-santo</li>
-                    <li>Erva-cidreira</li>
-                    <li>Cana-limão</li>
-                    <li>Chá-de-estrada</li>
-                    <li>Verbena-da-Índia</li>
-                </ul>
-            </div>
-        
-            <!-- Descrição Morfológica -->
-            <div class="herb-section">
-                <h2>Descrição da Planta</h2>
-                <ul>
-                    <li>Erva perene que forma touceiras</li>
-                    <li>Altura: 1-2 metros</li>
-                    <li>Colmos (caules) eretos e lisos</li>
-                    <li>Folhas verde-pálidas, lineares e ásperas</li>
-                    <li>Bordas cortantes (contêm sílica)</li>
-                    <li>Inflorescência em racemos de 30-60cm</li>
-                    <li>Aroma característico de limão</li>
-                    <li>Raramente floresce no Brasil</li>
-                </ul>
-            </div>
-        
-            <!-- Para Que Serve -->
-            <div class="herb-section">
-                <h2>Para Que Serve</h2>
-                <ul>
-                    <li><strong>Usos tradicionais:</strong>
-                        <ul>
-                            <li>Problemas digestivos e hepáticos</li>
-                            <li>Sintomas gripais (febre, tosse)</li>
-                            <li>Cólicas menstruais e intestinais</li>
-                            <li>Inflamações urinárias</li>
-                            <li>Pressão alta</li>
-                            <li>Ansiedade e insônia</li>
-                        </ul>
-                    </li>
-                    <li><strong>Comprovado cientificamente:</strong>
-                        <ul>
-                            <li>Efeito calmante (ativa receptores GABA)</li>
-                            <li>Ação antimicrobiana e antifúngica</li>
-                            <li>Atividade inseticida e repelente</li>
-                            <li>Efeito hipotensor</li>
-                            <li>Potencial antimalárico</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Como Usar -->
-            <div class="herb-section">
-                <h2>Como Usar</h2>
-                <h3>Chá (Infusão)</h3>
-                <ol>
-                    <li>20g de folhas frescas para 1L de água</li>
-                    <li>Água fervente sobre as folhas</li>
-                    <li>Abafar por 5-10 minutos</li>
-                    <li>Coe cuidadosamente (remover microfilamentos)</li>
-                    <li>Dose: 3-4 xícaras/dia</li>
-                </ol>
-        
-                <h3>Óleo Essencial</h3>
-                <ul>
-                    <li>Inalação: 3-6 gotas em algodão</li>
-                    <li>Uso em difusor aromático</li>
-                </ul>
-        
-                <div class="warning">
-                    <p>⚠️ Sempre filtrar bem para evitar ingerir partículas cortantes</p>
-                </div>
-            </div>
-        
-            <!-- Cuidados e Contraindicações -->
-            <div class="herb-section">
-                <h2>Cuidados e Contraindicações</h2>
-                <ul>
-                    <li><strong>Não usar em:</strong>
-                        <ul>
-                            <li>Grávidas (risco de aborto)</li>
-                            <li>Pessoas com úlcera gástrica</li>
-                            <li>Quem usa sedativos ou anti-hipertensivos</li>
-                        </ul>
-                    </li>
-                    <li><strong>Efeitos adversos:</strong>
-                        <ul>
-                            <li>Sedexão excessiva em doses altas</li>
-                            <li>Hipotensão</li>
-                            <li>Irritação gástrica</li>
-                        </ul>
-                    </li>
-                    <li><strong>Atenção:</strong> Não consumir folhas cruas (são cortantes)</li>
-                </ul>
-            </div>
-        
-            <!-- Cultivo -->
-            <div class="herb-section">
-                <h2>Cultivo</h2>
-                <ul>
-                    <li><strong>Propagação:</strong> Por perfilhos (clones da planta-mãe)</li>
-                    <li><strong>Clima:</strong> Adaptado ao tropical</li>
-                    <li><strong>Crescimento:</strong> Rápido com luz solar e chuva</li>
-                    <li><strong>No Brasil:</strong> Cultivado em todo território</li>
-                </ul>
-            </div>
-        
-            <!-- Curiosidades -->
-            <div class="herb-section">
-                <h2>Curiosidades</h2>
-                <ul>
-                    <li>Principal componente: Citral (mistura de neral e geranial)</li>
-                    <li>Usado na indústria de perfumes e cosméticos</li>
-                    <li>Eficaz contra o mosquito Aedes aegypti</li>
-                    <li>Na África e Ásia é usado como antirreumático</li>
-                    <li>Pode ser confundido com citronela (Cymbopogon winterianus)</li>
-                    <li>Folhas usadas na culinária asiática como tempero</li>
-                </ul>
-            </div>
-        
-            <!-- References -->
-            <div class="references">
-                <h2>Referências</h2>
-                <ul>
-                    <li>Cartilha de Plantas Medicinais - SUS Campinas (2018)</li>
-                    <li>Manual do CRF-SP (2022)</li>
-                    <li>Estudos UFPR (2003) e UFSC (2021)</li>
-                </ul>
-            </div>
-        </div>
+  <div class="herb-page">
+    <img src="imagens/capim-limao.jpg" alt="Capim-limão" class="herb-page-image">
 
-        <!-- Seção: Download do PDF -->
-        <div class="pdf-section">
-            <h2>Monografia Científica</h2>
-            <a href="pdf/capim-limao.pdf" class="pdf-btn" download>
-                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
-            </a>
-            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+    <h1 class="herb-page-title">Capim-limão (Cymbopogon citratus)</h1>
+
+    <div class="herb-section">
+      <h2>Visualização 3D</h2>
+      <div id="model-container">
+        <div class="loading-overlay" id="loading-overlay">
+          <p>Carregando modelo 3D...</p>
+          <div class="loading-bar">
+            <div class="loading-progress" id="load-progress"></div>
+          </div>
+          <small id="load-status">Iniciando...</small>
         </div>
-        
-        <!-- Botão "Voltar para Catálogo" -->
-        <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+      </div>
+      <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Configuração da cena Three.js
-            const container = document.getElementById('model-container');
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xf0f0f0);
-            
-            const camera = new THREE.PerspectiveCamera(
-                45, 
-                container.clientWidth / container.clientHeight, 
-                0.1, 
-                1000
-            );
-            camera.position.set(0, 0, 2);
-            
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            if (renderer.outputEncoding !== undefined) {
-                renderer.outputEncoding = THREE.sRGBEncoding;
+    <div class="herb-header">
+      <h1>Capim-limão <em>(Cymbopogon citratus)</em></h1>
+      <div class="synonyms">
+        <p><strong>Também conhecido como:</strong> Capim-santo, capim-cidreira, erva-cidreira, cana-cidreira</p>
+      </div>
+    </div>
+
+    <div class="herb-section">
+      <h2>Descrição Botânica</h2>
+      <p>É uma erva de cheiro cítrico, com folhas longas e cortantes. Forma moitas altas, de até 2 metros, e é muito comum em hortas caseiras.</p>
+    </div>
+
+    <div class="herb-section">
+      <h2>Propriedades Medicinais</h2>
+      <ul>
+        <li><strong>Calmante:</strong> Ajuda a reduzir a ansiedade e melhorar o sono</li>
+        <li><strong>Antigripal:</strong> Alivia sintomas como febre e tosse</li>
+        <li><strong>Digestivo:</strong> Auxilia no funcionamento do fígado e intestino</li>
+        <li><strong>Antimicrobiano e antifúngico:</strong> Atua contra microrganismos nocivos</li>
+        <li><strong>Inseticida:</strong> Ajuda a repelir insetos, como o mosquito da dengue</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Modos de Uso</h2>
+      <h3>Chá das Folhas</h3>
+      <p><strong>Como fazer:</strong></p>
+      <ol>
+        <li>Triture 1 colher de chá das folhas</li>
+        <li>Despeje 150 ml de água quente (não fervida) por cima</li>
+        <li>Abafe por 10 minutos, coe e tome de 2 a 3 vezes ao dia</li>
+      </ol>
+
+      <h3>Inalação com Óleo Essencial</h3>
+      <p>Pingue 3 a 6 gotas do óleo em um pano ou difusor e inale por até 10 minutos.</p>
+    </div>
+
+    <div class="herb-section">
+      <h2>Cuidados e Contraindicações</h2>
+      <ul>
+        <li>Evite durante a gravidez — pode causar aborto</li>
+        <li>Não usar em excesso — pode irritar o estômago</li>
+        <li>Evite combinar com sedativos ou remédios para pressão</li>
+        <li>Não deve ser consumido cru (em saladas ou sucos) — as folhas são cortantes</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>É muito usado em cosméticos, sabonetes e perfumes</li>
+        <li>Tem cheiro agradável e fresco, parecido com limão</li>
+        <li>É uma das plantas mais cultivadas em hortas medicinais</li>
+        <li>Suas folhas também ajudam a espantar baratas e mosquitos</li>
+      </ul>
+    </div>
+
+    <div class="pdf-section">
+      <h2>Monografia Científica</h2>
+      <a href="pdf/capim-limao.pdf" class="pdf-btn" download>
+        <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+      </a>
+      <p class="pdf-note">Monografia elaborada no Projeto de Extensão "Uso seguro de plantas medicinais pela população"</p>
+    </div>
+
+    <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('model-container');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xf0f0f0);
+
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 2);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      if (renderer.outputEncoding !== undefined) {
+        renderer.outputEncoding = THREE.sRGBEncoding;
+      }
+      container.appendChild(renderer.domElement);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 0.5;
+      controls.maxDistance = 10;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1.5, 1);
+      scene.add(directionalLight);
+
+      const loadingOverlay = document.getElementById('loading-overlay');
+      const loadProgress = document.getElementById('load-progress');
+      const loadStatus = document.getElementById('load-status');
+
+      if (typeof THREE.GLTFLoader === 'function') {
+        const loader = new THREE.GLTFLoader();
+        let model;
+
+        loader.load(
+          '3d/capim-limao.glb',
+          function (gltf) {
+            model = gltf.scene;
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            model.position.sub(center);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 1.5 / maxDim;
+            model.scale.set(scale, scale, scale);
+            scene.add(model);
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => { loadingOverlay.style.display = 'none'; }, 500);
+          },
+          function (xhr) {
+            if (xhr.lengthComputable) {
+              const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+              loadProgress.style.width = `${percent}%`;
+              loadStatus.textContent =
+                `Carregando: ${percent}% (${(xhr.loaded / 1024 / 1024).toFixed(2)}MB/${(xhr.total / 1024 / 1024).toFixed(2)}MB)`;
             }
-            container.appendChild(renderer.domElement);
-    
-            // 2. Controles
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.screenSpacePanning = false;
-            controls.minDistance = 0.5;
-            controls.maxDistance = 10;
-    
-            // 3. Iluminação
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1.5, 1);
-            scene.add(directionalLight);
-    
-            // 4. Carregador GLB
-            const loadingOverlay = document.getElementById('loading-overlay');
-            const loadProgress = document.getElementById('load-progress');
-            const loadStatus = document.getElementById('load-status');
-            
-            if (typeof THREE.GLTFLoader === 'function') {
-                const loader = new THREE.GLTFLoader();
-                let model;
-    
-                loader.load(
-                    // URL do modelo
-                    '3d/capim-limao.glb',
-                    
-                    // Sucesso
-                    function (gltf) {
-                        model = gltf.scene;
-                        
-                        // Ajusta escala e posição
-                        const box = new THREE.Box3().setFromObject(model);
-                        const center = box.getCenter(new THREE.Vector3());
-                        const size = box.getSize(new THREE.Vector3());
-                        
-                        model.position.sub(center);
-                        const maxDim = Math.max(size.x, size.y, size.z);
-                        const scale = 1.5 / maxDim;
-                        model.scale.set(scale, scale, scale);
-                        
-                        scene.add(model);
-                        
-                        // Esconde tela de carregamento
-                        loadingOverlay.style.opacity = '0';
-                        setTimeout(() => {
-                            loadingOverlay.style.display = 'none';
-                        }, 500);
-                    },
-                    
-                    // Progresso
-                    function (xhr) {
-                        if (xhr.lengthComputable) {
-                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
-                            loadProgress.style.width = `${percent}%`;
-                            loadStatus.textContent = 
-                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
-                        }
-                    },
-                    
-                    // Erro
-                    function (error) {
-                        console.error('Erro ao carregar:', error);
-                        loadStatus.innerHTML = 
-                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
-                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
-                    }
-                );
-            } else {
-                loadStatus.innerHTML = 
-                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
-                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
-            }
-    
-            // 5. Animação
-            function animate() {
-                requestAnimationFrame(animate);
-                if (controls) controls.update();
-                if (renderer && scene && camera) renderer.render(scene, camera);
-            }
-            animate();
-    
-            // 6. Redimensionamento
-            window.addEventListener('resize', () => {
-                if (camera && renderer && container) {
-                    camera.aspect = container.clientWidth / container.clientHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(container.clientWidth, container.clientHeight);
-                }
-            });
-        });
-    </script>
+          },
+          function (error) {
+            console.error('Erro ao carregar:', error);
+            loadStatus.innerHTML =
+              `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span><br><br>Verifique se o arquivo capim-limao.glb está na pasta /3d/`;
+          }
+        );
+      } else {
+        loadStatus.innerHTML =
+          `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (controls) controls.update();
+        if (renderer && scene && camera) renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        if (camera && renderer && container) {
+          camera.aspect = container.clientWidth / container.clientHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

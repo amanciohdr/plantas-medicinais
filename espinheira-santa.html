@@ -1,320 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>espinheira-santa | Farmácia Verde</title>
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="style-plants.css">
-    <!-- Bibliotecas Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espinheira-santa | Farmácia Verde</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style-plants.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo -->
-    <a href="index.html" class="back-button">← Voltar</a>
-    
-    <div class="herb-page">
-        <img src="imagens/espinheira-santa.jpg" alt="Espinheira-Santa" class="herb-page-image">
-        
-        <h1 class="herb-page-title">🍀 ESPINHEIRA SANTA (Maytenus ilicifolia e Maytenus aquifolium)</h1>
-        
-        <!-- Seção do Modelo 3D -->
-        <div class="herb-section">
-            <h2>Visualização 3D</h2>
-            <div id="model-container">
-                <div class="loading-overlay" id="loading-overlay">
-                    <p>Carregando modelo 3D...</p>
-                    <div class="loading-bar">
-                        <div class="loading-progress" id="load-progress"></div>
-                    </div>
-                    <small id="load-status">Iniciando...</small>
-                </div>
-            </div>
-            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
-        </div>
-        
-        <!-- Restante do conteúdo... -->
-        <div class="herb-container">
-                    
-            <!-- Plant Header -->
-            <div class="plant-header">
-                <h1>ESPINHEIRA SANTA <em>(Maytenus ilicifolia e Maytenus aquifolium)</em></h1>
-            </div>
-        
-            <!-- Sinônimos -->
-            <div class="herb-section">
-                <h2>Sinônimos</h2>
-                <ul>
-                    <li>Cancorosa</li>
-                    <li>Cancorosa-de-sete-espinhos</li>
-                    <li>Espinheira-divina</li>
-                    <li>Erva-santa</li>
-                    <li>Maiteno</li>
-                </ul>
-            </div>
-        
-            <!-- Descrição Morfológica -->
-            <div class="herb-section">
-                <h2>Descrição da Planta</h2>
-                <ul>
-                    <li><strong>Porte:</strong> Árvore pequena (1,5-2m de altura)</li>
-                    <li><strong>Caule:</strong> Verde-acinzentado, lenhoso e ramificado</li>
-                    <li><strong>Folhas:</strong>
-                        <ul>
-                            <li>Simples e coriáceas (rígidas)</li>
-                            <li>Forma elíptica com margens espinhosas</li>
-                            <li>Ápice agudo</li>
-                        </ul>
-                    </li>
-                    <li><strong>Flores:</strong>
-                        <ul>
-                            <li>Muito pequenas (5 pétalas)</li>
-                            <li>Cor amarelo-esverdeada</li>
-                            <li>Florescimento: junho a agosto</li>
-                        </ul>
-                    </li>
-                    <li><strong>Frutos:</strong> Alaranjados, ovais com 1-2 sementes vermelhas</li>
-                </ul>
-            </div>
-        
-            <!-- Para Que Serve -->
-            <div class="herb-section">
-                <h2>Para Que Serve</h2>
-                <ul>
-                    <li><strong>Uso popular:</strong>
-                        <ul>
-                            <li>Prevenção do câncer</li>
-                            <li>Tratamento de feridas</li>
-                        </ul>
-                    </li>
-                    <li><strong>Uso terapêutico interno:</strong>
-                        <ul>
-                            <li>Gastrite e úlceras gástricas/duodenais</li>
-                            <li>Aumenta secreção de muco gástrico</li>
-                            <li>Reduz acidez estomacal</li>
-                            <li>Ação anti-inflamatória</li>
-                        </ul>
-                    </li>
-                    <li><strong>Uso externo:</strong>
-                        <ul>
-                            <li>Cicatrização (acne, eczema, herpes)</li>
-                            <li>Feridas cutâneas</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Como Usar -->
-            <div class="herb-section">
-                <h2>Como Usar</h2>
-                <h3>Infusão (Uso Interno)</h3>
-                <ol>
-                    <li>1 colher de sopa (3g) de folhas secas</li>
-                    <li>150mL de água fervente</li>
-                    <li>Infundir por 5-10 minutos</li>
-                    <li>Coe e beba morno</li>
-                </ol>
-                <p><strong>Posologia:</strong> 3-4 xícaras/dia (1h após refeições e antes de dormir)</p>
-                <p><strong>Duração:</strong> Máximo 28 dias de tratamento</p>
-        
-                <div class="warning">
-                    <p>⚠️ Não ultrapassar a dose recomendada - pode causar irritação gástrica</p>
-                </div>
-            </div>
-        
-            <!-- Cuidados e Contraindicações -->
-            <div class="herb-section">
-                <h2>Cuidados e Contraindicações</h2>
-                <ul>
-                    <li><strong>Contraindicações absolutas:</strong>
-                        <ul>
-                            <li>Grávidas</li>
-                            <li>Lactantes (reduz produção de leite)</li>
-                            <li>Crianças menores de 6 anos</li>
-                        </ul>
-                    </li>
-                    <li><strong>Interações medicamentosas:</strong>
-                        <ul>
-                            <li>Antibióticos (piora absorção)</li>
-                            <li>Barbitúricos</li>
-                        </ul>
-                    </li>
-                    <li><strong>Efeitos adversos:</strong>
-                        <ul>
-                            <li>Irritação gástrica (em excesso)</li>
-                            <li>Vômitos, cólicas e diarreia (superdosagem)</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Cultivo -->
-            <div class="herb-section">
-                <h2>Cultivo</h2>
-                <ul>
-                    <li><strong>Propagação:</strong>
-                        <ul>
-                            <li>Sementes</li>
-                            <li>Rebentos de raiz (divisão de touceira)</li>
-                            <li>Estacas</li>
-                        </ul>
-                    </li>
-                    <li><strong>Espaçamento:</strong> 2m entre mudas</li>
-                    <li><strong>Crescimento:</strong> Muito lento</li>
-                    <li><strong>Clima ideal:</strong> Subtropical</li>
-                    <li><strong>Solo:</strong> Fértil e úmido</li>
-                    <li><strong>Colheita:</strong> Final do verão</li>
-                    <li><strong>Origem:</strong> Sul do Brasil, Argentina, Paraguai</li>
-                </ul>
-            </div>
-        
-            <!-- Curiosidades -->
-            <div class="herb-section">
-                <h2>Curiosidades</h2>
-                <ul>
-                    <li>Principais compostos: Taninos (marcadores), maitenina (triterpeno)</li>
-                    <li>Contém flavonoides (quercetina, isoquercitrina)</li>
-                    <li>Folhas possuem espinhos característicos</li>
-                    <li>Usada tradicionalmente por povos do sul da América</li>
-                    <li>Incluída na Farmacopeia Brasileira (2019)</li>
-                </ul>
-            </div>
-        
-        </div>
+  <a href="index.html" class="back-button">← Voltar</a>
 
-        <!-- Seção: Download do PDF -->
-        <div class="pdf-section">
-            <h2>Monografia Científica</h2>
-            <a href="pdf/espinheira-santa.pdf" class="pdf-btn" download>
-                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
-            </a>
-            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+  <div class="herb-page">
+    <img src="imagens/espinheira-santa.jpg" alt="Espinheira-santa" class="herb-page-image">
+
+    <h1 class="herb-page-title">Espinheira-santa (Maytenus ilicifolia / Maytenus aquifolium)</h1>
+
+    <div class="herb-section">
+      <h2>Visualização 3D</h2>
+      <div id="model-container">
+        <div class="loading-overlay" id="loading-overlay">
+          <p>Carregando modelo 3D...</p>
+          <div class="loading-bar">
+            <div class="loading-progress" id="load-progress"></div>
+          </div>
+          <small id="load-status">Iniciando...</small>
         </div>
-        
-        <!-- Botão "Voltar para Catálogo" -->
-        <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+      </div>
+      <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Configuração da cena Three.js
-            const container = document.getElementById('model-container');
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xf0f0f0);
-            
-            const camera = new THREE.PerspectiveCamera(
-                45, 
-                container.clientWidth / container.clientHeight, 
-                0.1, 
-                1000
-            );
-            camera.position.set(0, 0, 2);
-            
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            if (renderer.outputEncoding !== undefined) {
-                renderer.outputEncoding = THREE.sRGBEncoding;
+    <div class="herb-header">
+      <h1>Espinheira-santa <em>(Maytenus ilicifolia / Maytenus aquifolium)</em></h1>
+      <div class="synonyms">
+        <p><strong>Também conhecido como:</strong> Cancorosa, erva-santa, espinheira-divina, maiteno</p>
+      </div>
+    </div>
+
+    <div class="herb-section">
+      <h2>Descrição Botânica</h2>
+      <p>É um arbusto pequeno, com folhas rígidas e espinhos nas bordas. Produz flores pequenas amarelas e frutos alaranjados. Cresce de 1,5 a 2 metros de altura.</p>
+    </div>
+
+    <div class="herb-section">
+      <h2>Propriedades Medicinais</h2>
+      <ul>
+        <li><strong>Gastrite e úlcera:</strong> Alivia dores e protege o estômago</li>
+        <li><strong>Anti-inflamatório:</strong> Ajuda a reduzir inflamações digestivas</li>
+        <li><strong>Cicatrizante:</strong> Auxilia na recuperação da pele (uso externo)</li>
+        <li><strong>Calmante do estômago:</strong> Aumenta o muco e reduz a acidez</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Modos de Uso</h2>
+      <h3>Chá das Folhas</h3>
+      <p><strong>Como fazer:</strong></p>
+      <ol>
+        <li>Coloque 1 colher de sopa (3g) de folhas secas em 1 xícara (150 ml) de água fervente</li>
+        <li>Tampe, aguarde 10 minutos, coe e beba</li>
+        <li>Tomar de 3 a 4 vezes por dia, por até 28 dias</li>
+      </ol>
+    </div>
+
+    <div class="herb-section">
+      <h2>Cuidados e Contraindicações</h2>
+      <ul>
+        <li>Não usar na gravidez, amamentação ou em crianças menores de 6 anos</li>
+        <li>Evite o uso prolongado ou em doses elevadas — pode irritar o estômago</li>
+        <li>Pode interferir na absorção de alguns medicamentos</li>
+        <li>Não usar junto com antibióticos ou sedativos sem orientação médica</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>É muito usada na medicina popular contra problemas no estômago</li>
+        <li>Seu nome vem dos espinhos nas folhas, semelhantes aos do azevinho</li>
+        <li>Cresce devagar e gosta de sombra e solos úmidos</li>
+        <li>Também é conhecida por ajudar a tratar pequenas feridas na pele</li>
+      </ul>
+    </div>
+
+    <div class="pdf-section">
+      <h2>Monografia Científica</h2>
+      <a href="pdf/espinheira-santa.pdf" class="pdf-btn" download>
+        <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+      </a>
+      <p class="pdf-note">Monografia elaborada no Projeto de Extensão "Uso seguro de plantas medicinais pela população"</p>
+    </div>
+
+    <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('model-container');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xf0f0f0);
+
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 2);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      if (renderer.outputEncoding !== undefined) {
+        renderer.outputEncoding = THREE.sRGBEncoding;
+      }
+      container.appendChild(renderer.domElement);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 0.5;
+      controls.maxDistance = 10;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1.5, 1);
+      scene.add(directionalLight);
+
+      const loadingOverlay = document.getElementById('loading-overlay');
+      const loadProgress = document.getElementById('load-progress');
+      const loadStatus = document.getElementById('load-status');
+
+      if (typeof THREE.GLTFLoader === 'function') {
+        const loader = new THREE.GLTFLoader();
+        let model;
+
+        loader.load(
+          '3d/espinheira-santa.glb',
+          function (gltf) {
+            model = gltf.scene;
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            model.position.sub(center);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 1.5 / maxDim;
+            model.scale.set(scale, scale, scale);
+            scene.add(model);
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => { loadingOverlay.style.display = 'none'; }, 500);
+          },
+          function (xhr) {
+            if (xhr.lengthComputable) {
+              const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+              loadProgress.style.width = `${percent}%`;
+              loadStatus.textContent = `Carregando: ${percent}% (${(xhr.loaded / 1024 / 1024).toFixed(2)}MB/${(xhr.total / 1024 / 1024).toFixed(2)}MB)`;
             }
-            container.appendChild(renderer.domElement);
-    
-            // 2. Controles
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.screenSpacePanning = false;
-            controls.minDistance = 0.5;
-            controls.maxDistance = 10;
-    
-            // 3. Iluminação
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1.5, 1);
-            scene.add(directionalLight);
-    
-            // 4. Carregador GLB
-            const loadingOverlay = document.getElementById('loading-overlay');
-            const loadProgress = document.getElementById('load-progress');
-            const loadStatus = document.getElementById('load-status');
-            
-            if (typeof THREE.GLTFLoader === 'function') {
-                const loader = new THREE.GLTFLoader();
-                let model;
-    
-                loader.load(
-                    // URL do modelo
-                    '3d/espinheira-santa.glb',
-                    
-                    // Sucesso
-                    function (gltf) {
-                        model = gltf.scene;
-                        
-                        // Ajusta escala e posição
-                        const box = new THREE.Box3().setFromObject(model);
-                        const center = box.getCenter(new THREE.Vector3());
-                        const size = box.getSize(new THREE.Vector3());
-                        
-                        model.position.sub(center);
-                        const maxDim = Math.max(size.x, size.y, size.z);
-                        const scale = 1.5 / maxDim;
-                        model.scale.set(scale, scale, scale);
-                        
-                        scene.add(model);
-                        
-                        // Esconde tela de carregamento
-                        loadingOverlay.style.opacity = '0';
-                        setTimeout(() => {
-                            loadingOverlay.style.display = 'none';
-                        }, 500);
-                    },
-                    
-                    // Progresso
-                    function (xhr) {
-                        if (xhr.lengthComputable) {
-                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
-                            loadProgress.style.width = `${percent}%`;
-                            loadStatus.textContent = 
-                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
-                        }
-                    },
-                    
-                    // Erro
-                    function (error) {
-                        console.error('Erro ao carregar:', error);
-                        loadStatus.innerHTML = 
-                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
-                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
-                    }
-                );
-            } else {
-                loadStatus.innerHTML = 
-                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
-                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
-            }
-    
-            // 5. Animação
-            function animate() {
-                requestAnimationFrame(animate);
-                if (controls) controls.update();
-                if (renderer && scene && camera) renderer.render(scene, camera);
-            }
-            animate();
-    
-            // 6. Redimensionamento
-            window.addEventListener('resize', () => {
-                if (camera && renderer && container) {
-                    camera.aspect = container.clientWidth / container.clientHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(container.clientWidth, container.clientHeight);
-                }
-            });
-        });
-    </script>
+          },
+          function (error) {
+            console.error('Erro ao carregar:', error);
+            loadStatus.innerHTML =
+              `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span><br><br>Verifique se o arquivo espinheira-santa.glb está na pasta /3d/`;
+          }
+        );
+      } else {
+        loadStatus.innerHTML =
+          `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (controls) controls.update();
+        if (renderer && scene && camera) renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        if (camera && renderer && container) {
+          camera.aspect = container.clientWidth / container.clientHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -14,15 +14,13 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo -->
     <a href="index.html" class="back-button">← Voltar</a>
-    
+
     <div class="herb-page">
         <img src="imagens/boldinho.jpg" alt="Boldinho" class="herb-page-image">
-        
-        <h1 class="herb-page-title">🍀 Malvarisco (Plectranthus amboinicus)</h1>
-        
-        <!-- Seção do Modelo 3D -->
+
+        <h1 class="herb-page-title">Boldinho (Plectranthus neochilus)</h1>
+
         <div class="herb-section">
             <h2>Visualização 3D</h2>
             <div id="model-container">
@@ -36,178 +34,82 @@
             </div>
             <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
         </div>
-        
-        <!-- Restante do conteúdo... -->
+
         <div class="herb-header">
-            <h1>Boldinho <em>(Plectranthus neochilus Schltr.)</em></h1>
+            <h1>Boldinho <em>(Plectranthus neochilus)</em></h1>
             <div class="synonyms">
-                <p><strong>Também conhecido como:</strong> Hortelã-graúda, Hortelã-pimenta, Hortelã-gorda, Hortelã-da-folha-grossa, Boldo-da-terra</p>
-            </div>
-        </div>
-        
-        <div class="herb-container">
-            <!-- Sinônimos -->
-            <div class="herb-section">
-                <h2>Sinônimos</h2>
-                <ul>
-                    <li><em>Coleus neochilus</em> (nome científico alternativo)</li>
-                    <li>Boldinho</li>
-                    <li>Boldo da folha miúda</li>
-                    <li>Boldo-gambá</li>
-                    <li>Arbusto de lagosta</li>
-                    <li>Arbusto de mosca/mosquito</li>
-                </ul>
-            </div>
-        
-            <!-- Descrição Morfológica -->
-            <div class="herb-section">
-                <h2>Descrição da Planta</h2>
-                <ul>
-                    <li>Planta perene (às vezes anual)</li>
-                    <li>Porte: 0,12-0,5 m de altura</li>
-                    <li>Forma de crescimento: prostrada e ereta</li>
-                    <li>Muito ramificada e densa</li>
-                    <li>Caule: suculento, moderadamente viloso (peludo)</li>
-                    <li>Folhas: pecioladas, ápice mais largo que a base</li>
-                    <li>Superfície foliar: com muitos tricomas (pelos) produtores de óleos essenciais</li>
-                    <li>Margem foliar: com dentes (serrilhada)</li>
-                    <li>Flores: inflorescências racemosas de cor violácea</li>
-                    <li>Raízes: tuberosas</li>
-                    <li>Odor: forte nas folhas e flores</li>
-                    <li>Sabor: amargo característico</li>
-                </ul>
-            </div>
-        
-            <!-- Para Que Serve -->
-            <div class="herb-section">
-                <h2>Para Que Serve</h2>
-                <ul>
-                    <li><strong>Usos medicinais tradicionais:</strong>
-                        <ul>
-                            <li>Distúrbios digestivos</li>
-                            <li>Problemas hepáticos</li>
-                            <li>Ressaca alcoólica</li>
-                            <li>Infecções respiratórias</li>
-                            <li>Dores de barriga</li>
-                            <li>Inchaço abdominal</li>
-                        </ul>
-                    </li>
-                    <li><strong>Atividades em estudo:</strong>
-                        <ul>
-                            <li>Antioxidante (baixo a moderado)</li>
-                            <li>Antimicrobiano (contra bactérias Gram-positivas)</li>
-                            <li>Anti-esquistossomose (contra Schistosoma mansoni)</li>
-                            <li>Controle de insetos (mosca branca Bemisia tabaci)</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Como Usar -->
-            <div class="herb-section">
-                <h2>Como Usar</h2>
-                <h3>Infusão (chá)</h3>
-                <ul>
-                    <li><strong>Parte utilizada:</strong> Folhas (manuseadas com cuidado para preservar tricomas)</li>
-                    <li><strong>Preparo:</strong>
-                        <ol>
-                            <li>Utilizar folhas frescas ou secas</li>
-                            <li>Adicionar água quente (não fervente para preservar óleos voláteis)</li>
-                            <li>Abafar por 5-10 minutos</li>
-                            <li>Coe antes de consumir</li>
-                        </ol>
-                    </li>
-                    <li><strong>Dose:</strong> 2-3 xícaras ao dia conforme necessidade</li>
-                </ul>
-            </div>
-        
-            <!-- Cuidados e Contraindicações -->
-            <div class="herb-section">
-                <h2>Cuidados e Contraindicações</h2>
-                <ul>
-                    <li><strong>Contraindicações absolutas:</strong>
-                        <ul>
-                            <li>Gestantes e lactantes</li>
-                            <li>Pessoas com pedras na vesícula</li>
-                            <li>Hipersensibilidade conhecida à planta</li>
-                        </ul>
-                    </li>
-                    <li><strong>Precauções:</strong>
-                        <ul>
-                            <li>Toxicologia pouco estudada</li>
-                            <li>Não consta no formulário oficial de fitoterápicos</li>
-                            <li>Uso tradicional não substitui orientação médica</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Cultivo -->
-            <div class="herb-section">
-                <h2>Cultivo</h2>
-                <ul>
-                    <li><strong>Crescimento:</strong> Rápido durante todo o ano</li>
-                    <li><strong>Propagação:</strong> Principalmente por estaquia (não produz sementes)</li>
-                    <li><strong>Resistência:</strong>
-                        <ul>
-                            <li>Adapta-se a diferentes temperaturas</li>
-                            <li>Tolerante a secas (planta suculenta)</li>
-                            <li>Pode ser plantada em qualquer época</li>
-                        </ul>
-                    </li>
-                    <li><strong>Adubação:</strong> Responde bem a esterco bovino (aumenta biomassa e produção de óleos)</li>
-                    <li><strong>Usos alternativos:</strong>
-                        <ul>
-                            <li>Fitorremediação</li>
-                            <li>Telhados verdes (regula temperatura)</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Curiosidades -->
-            <div class="herb-section">
-                <h2>Curiosidades</h2>
-                <ul>
-                    <li>O nome <em>Plectranthus</em> vem do grego "plektron" (esporão) + "anthos" (flor)</li>
-                    <li>85% das espécies do gênero têm usos medicinais</li>
-                    <li>Seu óleo essencial tem propriedades inseticidas e antifúngicas</li>
-                    <li>Polinização feita principalmente por abelhas</li>
-                    <li>Pode crescer apenas com água da torneira</li>
-                    <li>Estudo mostrou que 100μg/mL do extrato matou 100% dos vermes Schistosoma mansoni in vitro</li>
-                    <li>O ácido rosmarínico é o composto comum que justifica seu uso tradicional para digestão e ressaca</li>
-                </ul>
+                <p><strong>Também conhecido como:</strong> Boldo, boldo da folha miúda, boldo-gambá, arbusto de mosquito</p>
             </div>
         </div>
 
-        <!-- Seção: Download do PDF -->
+        <div class="herb-section">
+            <h2>Descrição Botânica</h2>
+            <p>O Boldinho é uma planta suculenta, com folhas aveludadas e aroma forte. Cresce de 12 a 50 cm, com ramos densamente peludos. Suas flores são roxas e nascem em cachos. É fácil de cultivar e cresce o ano todo.</p>
+        </div>
+
+        <div class="herb-section">
+            <h2>Propriedades Medicinais</h2>
+            <ul>
+                <li><strong>Antioxidante:</strong> Protege as células do corpo</li>
+                <li><strong>Digestivo:</strong> Ajuda em problemas no estômago e no fígado</li>
+                <li><strong>Contra ressaca:</strong> Alivia sintomas causados pelo álcool</li>
+                <li><strong>Antimicrobiano:</strong> Atua contra alguns tipos de bactérias</li>
+                <li><strong>Antifúngico:</strong> Combate fungos</li>
+            </ul>
+        </div>
+
+        <div class="herb-section">
+            <h2>Modos de Uso</h2>
+            <h3>Chá das Folhas</h3>
+            <p><strong>Como fazer:</strong></p>
+            <ol>
+                <li>Ferva 1 xícara de água</li>
+                <li>Desligue o fogo e adicione 1 colher de folhas secas</li>
+                <li>Tampe e aguarde 10 minutos</li>
+                <li>Coe e beba morno</li>
+            </ol>
+            <p><strong>Indicações:</strong> Problemas digestivos, inchaço e desconforto abdominal</p>
+        </div>
+
+        <div class="herb-section">
+            <h2>Cuidados e Contraindicações</h2>
+            <ul>
+                <li>Evite usar durante a gravidez e amamentação</li>
+                <li>Não recomendado para pessoas com pedras na vesícula</li>
+                <li>Não é indicado para uso contínuo ou em altas doses</li>
+            </ul>
+        </div>
+
+        <div class="herb-section">
+            <h2>Curiosidades</h2>
+            <ul>
+                <li>É usada também como planta de telhado verde por resistir ao calor</li>
+                <li>Seu óleo essencial tem ação inseticida e antimicrobiana</li>
+                <li>Não produz sementes e é facilmente propagada por galhos</li>
+                <li>Seu nome vem do grego: “plektron” (esporão) e “anthos” (flor)</li>
+            </ul>
+        </div>
+
         <div class="pdf-section">
             <h2>Monografia Científica</h2>
             <a href="pdf/boldinho.pdf" class="pdf-btn" download>
                 <i class="fas fa-file-pdf"></i> Baixar PDF Completo
             </a>
-            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+            <p class="pdf-note">Monografia elaborada no Projeto de Extensão "Uso seguro de plantas medicinais pela população"</p>
         </div>
-        
-        <!-- Botão "Voltar para Catálogo" -->
+
         <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Configuração da cena Three.js
+        document.addEventListener('DOMContentLoaded', function () {
             const container = document.getElementById('model-container');
             const scene = new THREE.Scene();
             scene.background = new THREE.Color(0xf0f0f0);
-            
-            const camera = new THREE.PerspectiveCamera(
-                45, 
-                container.clientWidth / container.clientHeight, 
-                0.1, 
-                1000
-            );
+
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
             camera.position.set(0, 0, 2);
-            
+
             const renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
@@ -215,92 +117,76 @@
                 renderer.outputEncoding = THREE.sRGBEncoding;
             }
             container.appendChild(renderer.domElement);
-    
-            // 2. Controles
+
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.screenSpacePanning = false;
             controls.minDistance = 0.5;
             controls.maxDistance = 10;
-    
-            // 3. Iluminação
+
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
             scene.add(ambientLight);
-            
+
             const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
             directionalLight.position.set(1, 1.5, 1);
             scene.add(directionalLight);
-    
-            // 4. Carregador GLB
+
             const loadingOverlay = document.getElementById('loading-overlay');
             const loadProgress = document.getElementById('load-progress');
             const loadStatus = document.getElementById('load-status');
-            
+
             if (typeof THREE.GLTFLoader === 'function') {
                 const loader = new THREE.GLTFLoader();
                 let model;
-    
+
                 loader.load(
-                    // URL do modelo
                     '3d/boldinho.glb',
-                    
-                    // Sucesso
                     function (gltf) {
                         model = gltf.scene;
-                        
-                        // Ajusta escala e posição
+
                         const box = new THREE.Box3().setFromObject(model);
                         const center = box.getCenter(new THREE.Vector3());
                         const size = box.getSize(new THREE.Vector3());
-                        
+
                         model.position.sub(center);
                         const maxDim = Math.max(size.x, size.y, size.z);
                         const scale = 1.5 / maxDim;
                         model.scale.set(scale, scale, scale);
-                        
+
                         scene.add(model);
-                        
-                        // Esconde tela de carregamento
+
                         loadingOverlay.style.opacity = '0';
                         setTimeout(() => {
                             loadingOverlay.style.display = 'none';
                         }, 500);
                     },
-                    
-                    // Progresso
                     function (xhr) {
                         if (xhr.lengthComputable) {
                             const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
                             loadProgress.style.width = `${percent}%`;
-                            loadStatus.textContent = 
-                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
+                            loadStatus.textContent =
+                                `Carregando: ${percent}% (${(xhr.loaded / 1024 / 1024).toFixed(2)}MB/${(xhr.total / 1024 / 1024).toFixed(2)}MB)`;
                         }
                     },
-                    
-                    // Erro
                     function (error) {
                         console.error('Erro ao carregar:', error);
-                        loadStatus.innerHTML = 
-                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
-                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
+                        loadStatus.innerHTML =
+                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span><br><br>Verifique se o arquivo boldinho.glb está na pasta /3d/`;
                     }
                 );
             } else {
-                loadStatus.innerHTML = 
-                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
-                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
+                loadStatus.innerHTML =
+                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
             }
-    
-            // 5. Animação
+
             function animate() {
                 requestAnimationFrame(animate);
                 if (controls) controls.update();
                 if (renderer && scene && camera) renderer.render(scene, camera);
             }
             animate();
-    
-            // 6. Redimensionamento
+
             window.addEventListener('resize', () => {
                 if (camera && renderer && container) {
                     camera.aspect = container.clientWidth / container.clientHeight;

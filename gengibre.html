@@ -1,312 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gengibre | Farmácia Verde</title>
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="style-plants.css">
-    <!-- Bibliotecas Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gengibre | Farmácia Verde</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style-plants.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <!-- Botão "Voltar" no topo -->
-    <a href="index.html" class="back-button">← Voltar</a>
-    
-    <div class="herb-page">
-        <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image">
-        
-        <h1 class="herb-page-title">Gengibre (Zingiber officinale)</h1>
-        
-        <!-- Seção do Modelo 3D -->
-        <div class="herb-section">
-            <h2>Visualização 3D</h2>
-            <div id="model-container">
-                <div class="loading-overlay" id="loading-overlay">
-                    <p>Carregando modelo 3D...</p>
-                    <div class="loading-bar">
-                        <div class="loading-progress" id="load-progress"></div>
-                    </div>
-                    <small id="load-status">Iniciando...</small>
-                </div>
-            </div>
-            <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
-        </div>
-        
-        <!-- Restante do conteúdo... -->
-        <div class="herb-container">
-        
-            <!-- Plant Header -->
-            <div class="plant-header">
-                <h1>GENGIBRE <em>(Zingiber officinale)</em></h1>
-            </div>
-        
-            <!-- Sinônimos -->
-            <div class="herb-section">
-                <h2>Sinônimos</h2>
-                <ul>
-                    <li>Mangarataia</li>
-                    <li>Mangaratiá</li>
-                    <li><em>Amomum zingiber</em> L.</li>
-                    <li><em>Zingiber aromaticum</em> Noronha</li>
-                </ul>
-            </div>
-        
-            <!-- Descrição Morfológica -->
-            <div class="herb-section">
-                <h2>Descrição da Planta</h2>
-                <ul>
-                    <li><strong>Porte:</strong> Herbácea perene (1,2-1,5m altura)</li>
-                    <li><strong>Rizoma:</strong>
-                        <ul>
-                            <li>Horizontal e ramificado</li>
-                            <li>14-16cm comprimento</li>
-                            <li>Tubérculos ovóides e rugosos</li>
-                            <li>Cor amarelo-claro internamente</li>
-                        </ul>
-                    </li>
-                    <li><strong>Folhas:</strong> Ordenadas, lanceoladas</li>
-                    <li><strong>Flores:</strong> Amarelo-esverdeadas em espigas</li>
-                    <li><strong>Fruto:</strong> Cápsula com 3 cavidades</li>
-                    <li><strong>Sementes:</strong> Azuladas com albúmen carnoso</li>
-                </ul>
-            </div>
-        
-            <!-- Para Que Serve -->
-            <div class="herb-section">
-                <h2>Para Que Serve</h2>
-                <ul>
-                    <li><strong>Usos tradicionais:</strong>
-                        <ul>
-                            <li>Náuseas e enjoos (incluindo cinetose)</li>
-                            <li>Problemas digestivos (gases, indigestão)</li>
-                            <li>Gripes e resfriados</li>
-                            <li>Dores de garganta e rouquidão</li>
-                        </ul>
-                    </li>
-                    <li><strong>Ações farmacológicas:</strong>
-                        <ul>
-                            <li>Anti-inflamatório</li>
-                            <li>Antiemético (contra náuseas)</li>
-                            <li>Antimicrobiano</li>
-                            <li>Cardiotônico</li>
-                            <li>Protetor gástrico</li>
-                            <li>Estimulante digestivo</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- Como Usar -->
-            <div class="herb-section">
-                <h2>Como Usar</h2>
-                <h3>Infusão (Chá)</h3>
-                <ul>
-                    <li>0,5-1g de rizoma seco</li>
-                    <li>150mL de água fervente</li>
-                    <li>Tomar 2-4 vezes ao dia</li>
-                </ul>
-        
-                <h3>Tintura</h3>
-                <ul>
-                    <li>2,5mL diluídos em 75mL água</li>
-                    <li>Até 3 vezes ao dia</li>
-                </ul>
-        
-                <h3>Para Náuseas/Viagens</h3>
-                <ul>
-                    <li>0,5g de rizoma seco</li>
-                    <li>2-4 vezes ao dia</li>
-                </ul>
-        
-                <h3>Para Indigestão</h3>
-                <ul>
-                    <li>2-4g de rizoma seco/dia</li>
-                </ul>
-            </div>
-        
-            <!-- Cuidados e Contraindicações -->
-            <div class="herb-section">
-                <h2>Cuidados e Contraindicações</h2>
-                <ul>
-                    <li><strong>Contraindicações:</strong>
-                        <ul>
-                            <li>Pacientes com cálculos biliares</li>
-                            <li>Irritações gástricas severas</li>
-                            <li>Hipertensos</li>
-                            <li>Usuários de anticoagulantes</li>
-                        </ul>
-                    </li>
-                    <li><strong>Efeitos adversos:</strong>
-                        <ul>
-                            <li>Náuseas (em doses altas)</li>
-                            <li>Irritação estomacal</li>
-                            <li>Dermatite de contato</li>
-                        </ul>
-                    </li>
-                    <li><strong>Interações:</strong> Pode potencializar anticoagulantes</li>
-                </ul>
-            </div>
-        
-            <!-- Cultivo -->
-            <div class="herb-section">
-                <h2>Cultivo</h2>
-                <ul>
-                    <li><strong>Clima ideal:</strong> Tropical (adaptável a frio)</li>
-                    <li><strong>Solo:</strong> Arenoso, fértil (pH ~5,5)</li>
-                    <li><strong>Propagação:</strong> Por rizomas (30 dias para plantio)</li>
-                    <li><strong>Ciclo:</strong> 10-12 meses até colheita</li>
-                    <li><strong>Época de plantio:</strong> Setembro/Outubro</li>
-                    <li><strong>Origem:</strong> Ásia</li>
-                </ul>
-            </div>
-        
-            <!-- Curiosidades -->
-            <div class="herb-section">
-                <h2>Curiosidades</h2>
-                <ul>
-                    <li>Usado há mais de 3.000 anos na medicina asiática</li>
-                    <li>Terceira especiaria mais consumida no mundo</li>
-                    <li>Componente essencial da culinária oriental</li>
-                </ul>
-            </div>
-        
-    
-        </div>
+  <a href="index.html" class="back-button">← Voltar</a>
 
-        <!-- Seção: Download do PDF -->
-        <div class="pdf-section">
-            <h2>Monografia Científica</h2>
-            <a href="pdf/gengibre.pdf" class="pdf-btn" download>
-                <i class="fas fa-file-pdf"></i> Baixar PDF Completo
-            </a>
-            <p class="pdf-note">Estudo detalhado pela UNICAMP - Departamento de Farmacognosia</p>
+  <div class="herb-page">
+    <img src="imagens/gengibre.jpg" alt="Gengibre" class="herb-page-image" />
+    <h1 class="herb-page-title">Gengibre (Zingiber officinale)</h1>
+
+    <div class="herb-section">
+      <h2>Visualização 3D</h2>
+      <div id="model-container">
+        <div class="loading-overlay" id="loading-overlay">
+          <p>Carregando modelo 3D...</p>
+          <div class="loading-bar">
+            <div class="loading-progress" id="load-progress"></div>
+          </div>
+          <small id="load-status">Iniciando...</small>
         </div>
-        
-        <!-- Botão "Voltar para Catálogo" -->
-        <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+      </div>
+      <p class="model-instructions">Gire o modelo com o mouse e use a rodinha para zoom</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Configuração da cena Three.js
-            const container = document.getElementById('model-container');
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xf0f0f0);
-            
-            const camera = new THREE.PerspectiveCamera(
-                45, 
-                container.clientWidth / container.clientHeight, 
-                0.1, 
-                1000
-            );
-            camera.position.set(0, 0, 2);
-            
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            if (renderer.outputEncoding !== undefined) {
-                renderer.outputEncoding = THREE.sRGBEncoding;
+    <div class="herb-header">
+      <h1>Gengibre <em>(Zingiber officinale)</em></h1>
+      <div class="synonyms">
+        <p><strong>Também conhecido como:</strong> Mangarataia, Mangaratiá</p>
+      </div>
+    </div>
+
+    <div class="herb-section">
+      <h2>Descrição Botânica</h2>
+      <p>O gengibre é uma planta herbácea e perene, com rizomas grossos e aromáticos. Cresce até 1,5 metros de altura, com folhas longas e flores amarelas esverdeadas. O rizoma, parte usada, parece uma raiz nodosa.</p>
+    </div>
+
+    <div class="herb-section">
+      <h2>Propriedades Medicinais</h2>
+      <ul>
+        <li><strong>Antiinflamatório e digestivo:</strong> Ajuda em problemas intestinais, gases e indigestão</li>
+        <li><strong>Antiviral e antimicrobiano:</strong> Usado em gripes, resfriados e dores de garganta</li>
+        <li><strong>Cardiotônico:</strong> Beneficia o coração</li>
+        <li><strong>Expectorante e antitussígeno:</strong> Alivia tosse e rouquidão</li>
+        <li><strong>Antitrombótico:</strong> Melhora a circulação</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Modos de Uso</h2>
+      <h3>Infusão (chá)</h3>
+      <p><strong>Como fazer:</strong></p>
+      <ol>
+        <li>Use de 0,5 a 1 grama do rizoma seco em 150 ml de água quente</li>
+        <li>Tampe, aguarde 10 minutos, coe e beba</li>
+        <li>Tomar de 2 a 4 vezes ao dia</li>
+      </ol>
+
+      <h3>Tintura</h3>
+      <p>2,5 ml diluídos em 75 ml de água, até 3 vezes por dia</p>
+
+      <h3>Uso contra enjoo</h3>
+      <p>0,5 g da raiz seca, de 2 a 4 vezes ao dia</p>
+
+      <h3>Uso para gases e má digestão</h3>
+      <p>2 a 4 g da droga vegetal seca ou extrato seco</p>
+    </div>
+    <div class="herb-section">
+      <h2>Cuidados e Contraindicações</h2>
+      <ul>
+        <li>Evite em caso de cálculos biliares ou gastrite</li>
+        <li>Pessoas com hipertensão devem consultar um médico</li>
+        <li>Não usar com anticoagulantes sem orientação médica</li>
+        <li>Em excesso, pode causar náuseas e irritação no estômago</li>
+      </ul>
+    </div>
+
+    <div class="herb-section">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>Originário da Ásia, hoje é cultivado no mundo todo</li>
+        <li>Multiplica-se por pedaços do rizoma</li>
+        <li>Colheita ocorre cerca de 10 a 12 meses após o plantio</li>
+        <li>O gengibre é muito usado na culinária e em bebidas naturais</li>
+      </ul>
+    </div>
+
+    <div class="pdf-section">
+      <h2>Monografia Científica</h2>
+      <a href="pdf/gengibre.pdf" class="pdf-btn" download>
+        <i class="fas fa-file-pdf"></i> Baixar PDF Completo
+      </a>
+      <p class="pdf-note">Monografia elaborada no Projeto de Extensão "Uso seguro de plantas medicinais pela população"</p>
+    </div>
+
+    <a href="index.html" class="back-to-home">Voltar para Catálogo</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('model-container');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xf0f0f0);
+
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 2);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(renderer.domElement);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 0.5;
+      controls.maxDistance = 10;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1.5, 1);
+      scene.add(directionalLight);
+
+      const loadingOverlay = document.getElementById('loading-overlay');
+      const loadProgress = document.getElementById('load-progress');
+      const loadStatus = document.getElementById('load-status');
+
+      if (typeof THREE.GLTFLoader === 'function') {
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+          '3d/gengibre.glb',
+          function (gltf) {
+            const model = gltf.scene;
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            model.position.sub(center);
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 1.5 / maxDim;
+            model.scale.set(scale, scale, scale);
+            scene.add(model);
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => { loadingOverlay.style.display = 'none'; }, 500);
+          },
+          function (xhr) {
+            if (xhr.lengthComputable) {
+              const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
+              loadProgress.style.width = `${percent}%`;
+              loadStatus.textContent = `Carregando: ${percent}%`;
             }
-            container.appendChild(renderer.domElement);
-    
-            // 2. Controles
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.screenSpacePanning = false;
-            controls.minDistance = 0.5;
-            controls.maxDistance = 10;
-    
-            // 3. Iluminação
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1.5, 1);
-            scene.add(directionalLight);
-    
-            // 4. Carregador GLB
-            const loadingOverlay = document.getElementById('loading-overlay');
-            const loadProgress = document.getElementById('load-progress');
-            const loadStatus = document.getElementById('load-status');
-            
-            if (typeof THREE.GLTFLoader === 'function') {
-                const loader = new THREE.GLTFLoader();
-                let model;
-    
-                loader.load(
-                    // URL do modelo
-                    '3d/gengibre1.glb',
-                    
-                    // Sucesso
-                    function (gltf) {
-                        model = gltf.scene;
-                        
-                        // Ajusta escala e posição
-                        const box = new THREE.Box3().setFromObject(model);
-                        const center = box.getCenter(new THREE.Vector3());
-                        const size = box.getSize(new THREE.Vector3());
-                        
-                        model.position.sub(center);
-                        const maxDim = Math.max(size.x, size.y, size.z);
-                        const scale = 1.5 / maxDim;
-                        model.scale.set(scale, scale, scale);
-                        
-                        scene.add(model);
-                        
-                        // Esconde tela de carregamento
-                        loadingOverlay.style.opacity = '0';
-                        setTimeout(() => {
-                            loadingOverlay.style.display = 'none';
-                        }, 500);
-                    },
-                    
-                    // Progresso
-                    function (xhr) {
-                        if (xhr.lengthComputable) {
-                            const percent = (xhr.loaded / xhr.total * 100).toFixed(2);
-                            loadProgress.style.width = `${percent}%`;
-                            loadStatus.textContent = 
-                                `Carregando: ${percent}% (${(xhr.loaded/1024/1024).toFixed(2)}MB/${(xhr.total/1024/1024).toFixed(2)}MB)`;
-                        }
-                    },
-                    
-                    // Erro
-                    function (error) {
-                        console.error('Erro ao carregar:', error);
-                        loadStatus.innerHTML = 
-                            `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>
-                            <br><br>Verifique se o arquivo malvarisco.glb está na pasta /3d/`;
-                    }
-                );
-            } else {
-                loadStatus.innerHTML = 
-                    `<span style="color:red">Erro: Carregador GLTFLoader não encontrado.<br>
-                    Verifique se todas as bibliotecas Three.js foram carregadas corretamente.</span>`;
-            }
-    
-            // 5. Animação
-            function animate() {
-                requestAnimationFrame(animate);
-                if (controls) controls.update();
-                if (renderer && scene && camera) renderer.render(scene, camera);
-            }
-            animate();
-    
-            // 6. Redimensionamento
-            window.addEventListener('resize', () => {
-                if (camera && renderer && container) {
-                    camera.aspect = container.clientWidth / container.clientHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(container.clientWidth, container.clientHeight);
-                }
-            });
-        });
-    </script>
+          },
+          function (error) {
+            loadStatus.innerHTML = `<span style="color:red">Erro ao carregar o modelo:<br>${error.message}</span>`;
+          }
+        );
+      }
+    });
+  </script>
 </body>
 </html>
